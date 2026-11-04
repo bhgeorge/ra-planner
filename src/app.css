@@ -757,17 +757,21 @@ code {
   border-top: 1px solid var(--border);
 }
 
+.step-list-item {
+  border-bottom: 1px solid color-mix(in srgb, var(--border) 62%, transparent);
+}
+
+.step-list-item:last-child {
+  border-bottom: 0;
+}
+
 .step-row {
   display: flex;
   align-items: flex-start;
   gap: 6px;
   padding: 5px 12px 5px 6px;
-  border-bottom: 1px solid color-mix(in srgb, var(--border) 62%, transparent);
 }
 
-.step-row:last-child {
-  border-bottom: 0;
-}
 
 .step-row.checked {
   background: color-mix(in srgb, var(--success) 5%, transparent);
@@ -846,20 +850,6 @@ code {
   margin: 0 0 5px;
 }
 
-.note-toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 3px;
-  min-height: 48px;
-  padding: 0 6px;
-  border: 0;
-  border-radius: 8px;
-  background: none;
-  color: var(--accent);
-  font-size: 0.8rem;
-  font-weight: 600;
-}
-
 .chevron {
   display: inline-block;
   transition: transform 140ms ease;
@@ -869,11 +859,16 @@ code {
   transform: rotate(180deg);
 }
 
+.step-location {
+    color: var(--muted);
+    font-size: 0.88rem;
+    padding: 0.25rem;
+}
+
 .step-note {
   margin: 0 0 9px;
   padding: 10px 12px;
-  border-left: 3px solid var(--accent);
-  border-radius: 0 10px 10px 0;
+  border-radius: 10px;
   background: var(--surface-2);
   color: var(--muted);
   font-size: 0.88rem;

@@ -1,0 +1,99 @@
+slug: final-fantasy-x-international
+title: "Final Fantasy X: International"
+raGameId: 2778
+console: PS2
+version: 1
+sources:
+  - title: Item guide
+    url: https://docs.google.com/spreadsheets/d/1buOeKgsLZwGX68Yi18vJIMEKTI-DSDGc7UudAW9c3WE/edit?gid=0#gid=0
+  - title: Al Bhed primer locations
+    url: https://jegged.com/Games/Final-Fantasy-X/Side-Quests/Al-Bhed-Primer-Locations.html
+
+chapters:
+  - id: ch-dream-zanarkand
+    title: Dream Zanarkand
+    summary: Before entering the Blitzball arena
+    steps:
+      - id: s-bdsrqa
+        text: Potion x2
+        location: Zanarkand - Passway
+        note: "Soon after controlling Tidus, before entering the Stadium.Talk with the woman running in pink clothes 3 times. Say: 'Sure thing'"
+  - id: ch-baaj-temple-ruins
+    title: Baaj Temple Ruins
+    summary: Before lighting the fire
+    steps:
+      - id: s-4weafa
+        text: 200 Gil
+        location: Submerged Ruins
+        note: Swim to the Right Side. On the small platform.
+      - id: s-9hm8sb
+        text: Potion x2
+        location: Submerged Ruins
+        note: Swim to the left side, past the Al Bhed Sphere.
+      - id: s-cdqtbp
+        text: Hi-Potion
+        location: Ruins - Underwater Hall
+        note: Run to the left side before the bridge falls.
+      - id: s-d6df4k
+        text: X-Potion
+        location: Ruins - Hall
+        note: Once in the campfire screen. One of the doors can't be opened, on the right from that door, is this chest.
+      - id: s-mld23l
+        text: Ether
+        location: Ruins - Stairs
+        note: From the campfire, transition to the North Area. Chest is on the South.
+      - id: s-lfxr5k
+        text: Hi-Potion
+        location: Ruins - Hall (2nd Floor)
+        note: From previous chest. Transition to the North Area. Follow to path to find the chest.
+      - id: s-pxulkg
+        text: Confirm Item Collector I (7)
+  - id: ch-salvage-ship
+    title: Salvage Ship
+    summary: Before jumping into the water
+    steps:
+      - id: s-ilenna
+        text: Al Bhed primer I
+        note: Next to the save point.
+  - id: ch-besaid-beach-first
+    title: Besaid Beach
+    summary: Before following Wakka to Besaid
+    steps:
+      - id: s-fizgke
+        text: Moon Crest
+        location: Besaid - Beach
+        note: Once you get control of Tidus. Swim to the east, the chest is concealed on a small cove.
+      - id: s-qlfdmv
+        text: Antidote
+        location: Besaid - Beach
+        note: Running to the west, next to the wooden bridge.
+      - id: s-gtkitn
+        text: 200 Gil
+        location: Besaid - Beach
+        note: Before following Wakka - Talk to Keppa 2 times
+      - id: s-vtnndq
+        text: Potion x2
+        location: Besaid - Beach
+        note: Before following Wakka - Talk to Botta 2 times
+      - id: s-zyz4hc
+        text: Potion x3
+        location: Besaid - Beach
+        note: Before following Wakka - Talk to Jassu 2 times
+      - id: s-sramyv
+        text: Hi-Potion
+        location: Besaid - Beach
+        note: Before following Wakka - Talk to Datto 4 times
+      - id: s-4y7s6b
+        text: Phoenix Down
+        location: Besaid - Valley
+        note: Underwater - Right around the begining, if it's hard to spot, advance a bit and let the camera pan down for a bit, then come back.
+      - id: s-imzwaw
+        text: Hi-Potion
+        location: Besaid - Valley
+        note: Underwater - A bit past the previous chest, it's fairly hidden, on the left side.
+      - id: s-loihmw
+        text: Antidote x2
+        location: Besaid - Valley
+        note: Underwater - Right before the path that can only go north.
+      - id: s-ttetrw
+        text: Confirm Item Collector I (16)

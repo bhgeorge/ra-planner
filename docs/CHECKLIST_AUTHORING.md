@@ -36,6 +36,7 @@ chapters:                       # required; at least one chapter
     steps:                      # required; at least one step
       - id: s-4f2a9c            # required; unique across the whole file, stable forever
         text: Talk to the shopkeeper before buying anything.   # required, plain text
+        location: Intro Store # optional
         note: Talking first unlocks the discount. If you buy first, the discount is lost.  # optional
         achievementIds: [98012] # optional non-empty array of positive integers
       - id: s-81be07
@@ -59,6 +60,7 @@ chapters:                       # required; at least one chapter
 | `chapters[].steps` | At least one step per chapter. |
 | `steps[].id` | Unique across chapters **and** steps, stable forever. `^[a-z0-9][a-z0-9-]{1,39}$`. |
 | `steps[].text` | Non-empty **plain text**. No markdown, no HTML. One actionable thing. |
+| `steps[].location` | Optional plain text. The in-game location the step takes place in. |
 | `steps[].note` | Optional plain text. Warnings, the "why", or extra detail. Bare URLs are auto-linked. |
 | `steps[].achievementIds` | Optional non-empty array of positive integers. A step can complete more than one achievement. |
 

@@ -33,6 +33,7 @@ export const StepSchema = z
   .object({
     id: idSchema,
     text: nonEmptyText,
+    location: nonEmptyText.optional(),
     note: nonEmptyText.optional(),
     achievementIds: z.array(z.number().int().positive()).min(1).optional(),
   })

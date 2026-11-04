@@ -20,8 +20,6 @@
     onOpenAchievement: (id: number) => void;
   } = $props();
 
-  let noteExpanded = $state(false);
-
   const achievementIds = $derived(step.achievementIds ?? []);
   const achievements = $derived(
     achievementIds.map((id) => raData?.achievements[String(id)]),
@@ -60,23 +58,10 @@
       </p>
     {/if}
 
-    {#if step.note || achievementIds.length > 0 || earnedOnRa}
+    {#if achievementIds.length > 0 || earnedOnRa}
       <div class="step-meta">
         {#if earnedOnRa}
-          <span class="ra-earned-marker">earned on RA</span>
-        {/if}
-
-        {#if step.note}
-          <button
-            type="button"
-            class="note-toggle"
-            aria-expanded={noteExpanded}
-            aria-controls={noteId}
-            onclick={() => (noteExpanded = !noteExpanded)}
-          >
-            {noteExpanded ? 'Hide note' : 'Note'}
-            <span class="chevron" class:open={noteExpanded} aria-hidden="true">▾</span>
-          </button>
+          <span class="ra-earned-marker">earned</span>
         {/if}
 
         {#each achievementIds as id (id)}
@@ -89,7 +74,11 @@
       </div>
     {/if}
 
-    {#if noteExpanded && step.note}
+    {#if step.location}
+        <div class="step-location">{step.location}</div>
+        {/if}
+
+    {#if step.note}
       <div class="step-note" id={noteId}>
         <PlainText text={step.note} />
       </div>

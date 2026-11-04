@@ -65,7 +65,7 @@
   {#if expanded}
     <div class="step-list" role="list">
       {#each chapter.steps as step (step.id)}
-        <div role="listitem">
+        <div class="step-list-item" role="listitem">
           <StepRow
             {step}
             checked={isChecked(game, step.id)}
