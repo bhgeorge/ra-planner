@@ -1,0 +1,59 @@
+# This is a template checklist. Replace it with real games, or keep it as a
+# live example of every supported field. See docs/CHECKLIST_AUTHORING.md.
+slug: example-game
+title: Example Game
+raGameId: 12345
+console: SNES
+version: 1
+sources:
+  - title: Example walkthrough
+    url: https://retroachievements.org/game/12345
+
+chapters:
+  - id: ch-prologue
+    title: Prologue — before you leave town
+    summary: Do everything here before boarding the ship. The town is gone afterwards.
+    steps:
+      - id: s-4f2a9c
+        text: Talk to the shopkeeper before buying anything.
+        note: Talking first unlocks the discount. If you buy first, the conversation changes and the discount is lost for the run.
+        achievementIds: [98012]
+      - id: s-81be07
+        text: Pick up the hidden key in the inn's second room.
+        note: Search the barrel beside the bed. This key opens the optional basement chest later in the game.
+      - id: s-2c77d1
+        text: Equip the old sword from the chest in your room.
+        achievementIds: [98013, 98014]
+      - id: s-b0a63e
+        text: Save at the town fountain.
+        note: This is the last save point before the point of no return.
+
+  - id: ch-first-dungeon
+    title: First dungeon — full clear
+    summary: Finish every room before taking the final staircase. The exit collapses behind you.
+    steps:
+      - id: s-53cd90
+        text: Defeat every enemy in the west wing.
+        note: The rare drop is only available from these encounters, and the west wing is sealed after the boss.
+      - id: s-ae19f5
+        text: Open the locked chest with the hidden key.
+        achievementIds: [98015]
+      - id: s-f42c08
+        text: Read the stone tablet in the library.
+        note: The tablet reveals the boss's weakness. Missing it turns the boss into a long fight, not a missable item.
+      - id: s-7d1b6a
+        text: Save before descending the final staircase.
+      - id: s-c9e2b3
+        text: Defeat the dungeon boss without using a healing item.
+        note: This is a bonus achievement. It is safe to skip if you are struggling; nothing becomes unobtainable.
+
+  - id: ch-point-of-no-return
+    title: Point of no return
+    summary: Crossing the bridge locks the prologue town forever.
+    steps:
+      - id: s-6a4de1
+        text: Confirm that every earlier chapter is fully checked.
+        note: There is no way back from here in a normal playthrough.
+      - id: s-d18f72
+        text: Cross the eastern bridge to begin Chapter 1.
+        achievementIds: [98016]
