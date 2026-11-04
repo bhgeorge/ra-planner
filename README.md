@@ -9,7 +9,7 @@ A phone-first, offline-capable PWA for working through **order-dependent checkli
 
 ## Quick start
 
-Requirements: Node.js 20.19+ or 22.12+ (tested with Node 24) and pnpm 12. The pnpm version is pinned in `package.json` via `packageManager`; run `corepack enable` once if pnpm is not already installed.
+Requirements: Node.js 26+ (tested with Node 26.13) and pnpm 12. The pnpm version is pinned in `package.json` via `packageManager`; if pnpm is not installed, run `npm install -g pnpm@12`.
 
 ```bash
 pnpm install
