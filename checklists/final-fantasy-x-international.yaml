@@ -5,9 +5,13 @@ console: PS2
 version: 1
 sources:
   - title: Item guide
-    url: https://docs.google.com/spreadsheets/d/1buOeKgsLZwGX68Yi18vJIMEKTI-DSDGc7UudAW9c3WE/edit?gid=0#gid=0
+    url: "https://docs.google.com/spreadsheets/d/1buOeKgsLZwGX68Yi18vJIMEKTI-DSDGc7UudAW9c3WE/edit?gid=0#gid=0"
   - title: Al Bhed primer locations
-    url: https://jegged.com/Games/Final-Fantasy-X/Side-Quests/Al-Bhed-Primer-Locations.html
+    url: "https://jegged.com/Games/Final-Fantasy-X/Side-Quests/Al-Bhed-Primer-Locations.html"
+  - title: Via Purifico chest video guide (Christian Nightingale)
+    url: "https://www.youtube.com/watch?v=lj5oMrcnA4E"
+  - title: Sin chest video guide (Christian Nightingale)
+    url: "https://www.youtube.com/watch?v=hUZeN99gMik"
 
 chapters:
   - id: ch-dream-zanarkand
@@ -97,3 +101,1360 @@ chapters:
         note: Underwater - Right before the path that can only go north.
       - id: s-ttetrw
         text: Confirm Item Collector I (16)
+  - id: ch-besaid-village
+    title: Besaid Village
+    summary: Before leaving the village for the beach
+    steps:
+      - id: s-9f1ece
+        text: Phoenix Down
+        location: Besaid - Village
+        note: On the south-west tent, right in front of it.
+      - id: s-7d48fc
+        text: 400 Gil
+        location: Besaid - Village
+        note: "The hidden western path holds three chests; this is the first."
+      - id: s-d4cfce
+        text: Hi-Potion
+        location: Besaid - Village
+        note: Second chest on the same hidden western path.
+      - id: s-c4d58c
+        text: Potion x2
+        location: Besaid - Village
+        note: Third chest on the same hidden western path.
+      - id: s-xxa4w
+        text: Al Bhed Primer II
+        location: Besaid - Village
+        note: Inside the crusader's tent near the counter.
+      - id: s-37dcbb
+        text: Rod of Wisdom
+        location: Besaid - Cloister of Trials
+        note: Complete the secret trial using a destruction sphere. This mechanic repeats in every trial and ties into other achievements, so do not skip it. Counts toward Item Collector IV.
+  - id: ch-besaid-departure
+    title: Besaid Beach (departure)
+    summary: Before boarding the boat
+    steps:
+      - id: s-7a2f4d
+        text: Ether
+        location: Besaid - Beach
+        note: "Let the NPCs gather on the bridge, then talk to each one several times; five treasures in total come from this group."
+      - id: s-8dcc1a
+        text: Phoenix Down x3
+        location: Besaid - Beach
+        note: Talk to the lady.
+      - id: s-fa2f58
+        text: Seeker Ring
+        location: Besaid - Beach
+        note: Talk to the priest.
+      - id: s-98756c
+        text: 400 Gil
+        location: Besaid - Beach
+        note: Talk to the villager at the top left.
+      - id: s-459a93
+        text: Remedy
+        location: Besaid - Beach
+        note: Talk to the kid at the bridge.
+      - id: s-e26032
+        text: Confirm Item Collector I (25)
+  - id: ch-ss-liki
+    title: SS Liki
+    summary: Before the cutscenes on board
+    steps:
+      - id: s-1106e8
+        text: Remedy
+        location: SS Liki - Cabin
+        note: "After taking control of Tidus, before any cutscenes. Go downstairs, and after the Oaka scene take the door on the left; the chest is on the west side. The suitcase with potions does not count."
+      - id: s-artv4e
+        text: Al Bhed Primer III
+        location: SS Liki - Engine Room
+        note: In the back near the chocobo.
+  - id: ch-kilika-village
+    title: Kilika Village
+    summary: Before heading into the woods
+    steps:
+      - id: s-16f540
+        text: Ether
+        location: Kilika - Tavern
+        note: "After the Yuna dance cutscene, run to the west of the village and save the little girl from the collapsing hut. Then go to the tavern in the east; she gives you the treasure."
+      - id: yi7xnr
+        text: Al Bhed Primer IV
+        location: Kilika - Tavern
+        note: On the counter.
+      - id: s-20bc17
+        text: Potion x3
+        location: Kilika - House
+        note: Inside the house in the north-west.
+  - id: ch-kilika-woods
+    title: Kilika Woods
+    summary: Follow the Ochu steps in order. Several treasures depend on when and from which side you fight it.
+    steps:
+      - id: s-ef6089
+        text: Antidote x4
+        location: Kilika Woods
+        note: Approach the Ochu from the south and talk to Luzzu 2 times. Do not defeat the Ochu yet.
+      - id: s-9f2e9d
+        text: Mana Sphere x2
+        location: Kilika Woods
+        note: Chest at the end of the south-east path.
+      - id: s-4d3b1c
+        text: Scout
+        location: Kilika Woods
+        note: From the save point go west, then north along the thin path to another chest.
+      - id: s-f7200a
+        text: Remedy
+        location: Kilika Woods
+        note: From the previous chest go north. At the intersection, talk to the blue-armored crusader 2 times.
+      - id: s-e149e1
+        text: Phoenix Down x3
+        location: Kilika Woods
+        note: Engage the Ochu from its west side, then flee. The crusader hands over the treasure. This one is a common cause of failed runs.
+      - id: s-7f254e
+        text: Hi-Potion
+        location: Kilika Woods
+        note: Continue north from the intersection, then east, and talk to the blue-armored crusader.
+      - id: s-08cb86
+        text: Luck Sphere
+        location: Kilika Woods
+        note: From the crusader, go north and follow the path.
+      - id: s-0f2a58
+        text: Elixir
+        location: Kilika Woods
+        note: Now defeat the Ochu from the south, then talk to Luzzu again.
+  - id: ch-kilika-temple
+    title: Kilika Temple
+    summary: Cloister of Trials
+    steps:
+      - id: s-30c00e
+        text: Red Armlet
+        location: Kilika Temple - Cloister of Trials
+        note: Complete the secret trial using a destruction sphere.
+      - id: s-1df247
+        text: Confirm Item Collector I (26), II (11), IV (1)
+  - id: ch-ss-winno
+    title: SS Winno
+    summary: Before leaving the ship
+    steps:
+      - id: s-4e578c
+        text: Hi-Potion
+        location: SS Winno - Cabin
+        note: On the screen where you first control Tidus, behind the Aurochs.
+      - id: s-k7htnc
+        text: Al Bhed Primer V
+        location: SS Winno - Bridge
+        note: On the ground next to the captain
+  - id: ch-luca
+    title: Luca
+    summary: "These chests do not currently count toward Item Collector II. Listed in case that gets fixed; if so, add 8 to the II count."
+    steps:
+      - id: s-hkueao
+        text: Al Bhed Primer VI
+        note: On the opposite side from the Auroch's locker room behind the two players on the left.
+      - id: s-5xy1vq
+        text: Al Bhed Primer VII
+        location: Luca - Sphere Theater
+        note: On the left side of the stairs.
+      - id: s-bdeb36
+        text: Hi-Potion x2
+        location: Luca
+        note: Optional. Does not currently count toward Item Collector II.
+      - id: s-902a20
+        text: 600 Gil
+        location: Luca
+        note: Optional. Does not currently count toward Item Collector II.
+      - id: s-c3c570
+        text: Tidal Spear
+        location: Luca
+        note: Optional. Does not currently count toward Item Collector II.
+      - id: s-3da745
+        text: Phoenix Down x2
+        location: Luca
+        note: Optional. Does not currently count toward Item Collector II.
+      - id: s-d262c1
+        text: Magic Sphere
+        location: Luca
+        note: Optional. Does not currently count toward Item Collector II.
+      - id: s-3d3514
+        text: HP Sphere
+        location: Luca
+        note: Optional. Does not currently count toward Item Collector II.
+      - id: s-cf7784
+        text: 1000 Gil
+        location: Luca
+        note: Optional. Does not currently count toward Item Collector II.
+      - id: s-0695aa
+        text: Strength Sphere
+        location: Luca
+        note: Optional. Does not currently count toward Item Collector II. Reward for winning the tournament.
+  - id: ch-miihen-south-end
+    title: Mi'ihen South End
+    summary: "NPCs wander in and out of the area; keep track of who you have talked to before leaving."
+    steps:
+      - id: s-82200c
+        text: Hi-Potion
+        location: South End
+        note: Talk to the first NPC in a yellow shirt.
+      - id: s-35f12a
+        text: Antidote x2
+        location: South End
+        note: Talk to the second NPC, a woman who likes to stand left of the statue near Maechen.
+      - id: s-0a204b
+        text: Hunter's Spear
+        location: South End
+        note: "Talk to the third NPC, in a blue shirt; they may show up sooner or later on the screen."
+      - id: s-c81c03
+        text: Ice Brand
+        location: South End
+        note: Chest behind the ruins on the left.
+  - id: ch-miihen-highroad
+    title: Mi'ihen Highroad (South and Central)
+    summary: "Crusaders walk the road; talk to each of them before moving on."
+    steps:
+      - id: s-458eee
+        text: Remedy
+        location: Highroad South
+        note: Right at the start, toward the west side.
+      - id: s-3ed7c2
+        text: Red Ring
+        location: Highroad South
+        note: "Talk to the dashing crusader in blue armor; you can wait for him at the south spawn point. A green soldier may also give this item."
+      - id: s-68b03f
+        text: Soft x3
+        location: Highroad South
+        note: "Do not kick the blitzball; talk to the boy past the ball instead. If you kicked it by accident, leave the screen and return. If he still won't give the item, reload your last save."
+      - id: s-38780d
+        text: Lv 1 Sphere
+        location: Highroad Central
+        note: "Talk to the crusader in blue armor; wait for him at the south spawn point."
+      - id: s-eced14
+        text: Antidote x4
+        location: Highroad Central
+        note: Talk to the crusader in yellow armor, who tends to walk the southern part.
+      - id: s-b1c312
+        text: 600 Gil
+        location: Highroad Central
+        note: Talk to the other yellow-armored crusader, toward the middle.
+      - id: s-a421c6
+        text: 2000 Gil
+        location: Highroad Central
+        note: Chest around the middle, next to some ruins on the east.
+      - id: s-e01c8a
+        text: Ether
+        location: Highroad Central
+        note: Talk to the purple crusader on the west side of the road. Does not count toward Item Collector, but grab it in case that gets fixed.
+      - id: s-54fa72
+        text: Hi-Potion
+        location: Highroad Central
+        note: After the Luzzu and Gatta cutscene, talk to the woman on the west side of the road.
+      - id: s-766360
+        text: Eye Drops x3
+        location: Highroad Central
+        note: Chest at the end of the road.
+  - id: ch-miihen-chocobo-roads
+    title: Mi'ihen Highroad (Chocobo roads)
+    summary: From the Travel Agency north. Ride a chocobo and check the yellow feathers to reveal the chests.
+    steps:
+      - id: s-pkh5ru
+        text: Al Bhed Primer VIII
+        location: Mi'ihen Highroad - Travel Agency
+        note: Given to you automatically by Rin when you reach the agency.
+      - id: s-4bf64d
+        text: Defeat the Chocobo Eater
+        location: Mi'ihen Travel Agency
+        note: This unlocks chocobos. You can lose by getting pushed down the cliff, so be careful.
+      - id: s-09faab
+        text: Heat Lance
+        location: Highroad - New Road, North
+        note: On a chocobo, around the middle of the road, check the yellow feather on the ground to reveal the chest.
+      - id: s-o6krk
+        text: Al Bhed Primer IX
+        location: Highroad - New Road, North
+        note: On the trail near two plants at the end of the location.
+      - id: s-c56b61
+        text: Hi-Potion x2
+        location: Highroad - North End
+        note: Toward the west side of the area.
+      - id: s-69ecb4
+        text: Thunder Blade
+        location: Highroad - Old Road, North
+        note: On a chocobo, inspect the yellow feathers along the path. This spot gives two items.
+      - id: s-6c3541
+        text: Scout
+        location: Highroad - Old Road, North
+        note: Second item from the same feather spot.
+      - id: s-fd5622
+        text: Fortune Sphere
+        location: Highroad - Old Road, South
+        note: "On a chocobo, follow the path south; another yellow feather reveals the chest."
+      - id: s-e32411
+        text: Saturn Crest
+        location: Highroad - Old Road, South
+        note: All the way to the end of the path.
+  - id: ch-mushroom-rock
+    title: Mushroom Rock
+    summary: Before moving on to the valley
+    steps:
+      - id: s-9ae7c0
+        text: Tough Bangle
+        location: Mushroom Rock
+        note: After the Seymour cutscene, backtrack a bit and talk to the crusader in the south. Does not count toward Item Collector II, but take it in case that gets fixed.
+      - id: s-3b5b44
+        text: Remedy
+        location: Mushroom Rock
+        note: "Next to the guard who gave the Tough Bangle. Also does not count; take it anyway."
+      - id: s-2819e5
+        text: Hi-Potion
+        location: Mushroom Rock
+        note: "Three crusaders gather after a while at the spot marked on the map. Wait for them; each one has an item."
+      - id: s-6cc944
+        text: Ether
+        location: Mushroom Rock
+        note: Second of the three gathered crusaders.
+      - id: s-df69c5
+        text: Phoenix Down x2
+        location: Mushroom Rock
+        note: Third of the three gathered crusaders.
+  - id: ch-mushroom-valley
+    title: Mushroom Rock - Valley
+    summary: Before leaving the valley
+    steps:
+      - id: s-ca9bf3
+        text: Hi-Potion
+        location: Mushroom Rock - Valley
+        note: Talk to the first guard you see.
+      - id: s-bcdce9
+        text: 1000 Gil
+        location: Mushroom Rock - Valley
+        note: Chest along the southern part, next to a crusader.
+      - id: s-930747
+        text: Potion x10
+        location: Mushroom Rock - Valley
+        note: Talk to the same guard as for the chest above. Does not count toward Item Collector.
+      - id: s-670570
+        text: Remedy
+        location: Mushroom Rock - Valley
+        note: Chest around the middle of the area.
+      - id: s-1e1ae6
+        text: Hi-Potion
+        location: Mushroom Rock - Valley
+        note: Chest near the end of the area.
+      - id: s-g6grfh
+        text: Al Bhed Primer X
+        location: Mushroom Rock - Valley
+        note: Along the secret pathway on the western side of the map.
+  - id: ch-mushroom-precipice
+    title: Mushroom Rock - Precipice
+    summary: Before taking the final elevator
+    steps:
+      - id: s-060693
+        text: X-Potion
+        location: Mushroom Rock - Precipice
+        note: Talk to the first guard you see. Does not count toward Item Collector.
+      - id: s-db4008
+        text: 400 Gil
+        location: Mushroom Rock - Precipice
+        note: Talk to the second guard you see.
+      - id: s-6d1f19
+        text: Serene Armlet
+        location: Mushroom Rock - Precipice
+        note: "Take the elevator on the west; the chest is down there."
+      - id: s-9b92f0
+        text: Mega-Potion
+        location: Mushroom Rock - Precipice
+        note: Near the end, in front of the final elevator, a crusader has this item.
+  - id: ch-mushroom-ridge
+    title: Mushroom Rock - Ridge
+    summary: Cutscenes and both boss battles. The last chest only appears afterward.
+    steps:
+      - id: s-e3a336
+        text: Mega-Potion
+        location: Mushroom Rock - Ridge
+        note: "After the Kinoc cutscenes, two chests sit next to Lulu and Yuna; this is the first."
+      - id: s-8cd452
+        text: Serene Bracer
+        location: Mushroom Rock - Ridge
+        note: Second chest next to Lulu and Yuna.
+      - id: s-ac4474
+        text: Hi-Potion
+        location: Mushroom Rock - Aftermath
+        note: After both boss battles and the Luzzu and Gatta cutscenes, go west from the save point to find the chest.
+  - id: ch-djose-highroad
+    title: Djose Highroad
+    summary: Before entering the temple
+    steps:
+      - id: s-540d15
+        text: Soft Ring
+        location: Djose Highroad
+        note: Talk to the first crusader walking north, wearing a yellow shirt.
+      - id: s-44fbf6
+        text: Phoenix Down x2
+        location: Djose Highroad
+        note: Chest on the southern part of the path.
+      - id: s-d9ae0c
+        text: Ether
+        location: Djose Highroad
+        note: Talk to the yellow crusader around the middle of the path, a bit past the Al Bhed Primer.
+      - id: s-c9ebdf
+        text: Hi-Potion
+        location: Djose Highroad
+        note: Talk to the priest next to the previous crusader.
+      - id: s-75bf2d
+        text: Bright Bangle
+        location: Djose Highroad
+        note: Chest semi-hidden on the west side.
+      - id: s-cb694d
+        text: Mega-Potion
+        location: Djose Highroad
+        note: Toward the end of the path, a praying crusader gives this.
+      - id: s-b20401
+        text: Variable Steel
+        location: Djose Highroad
+        note: "Backtrack to the start of the screen; a crusader in a blue shirt is there now. Talk to him 2 times."
+      - id: s-jhr1ou
+        text: Al Bhed Primer XI
+        location: Djose Highroad
+        note: Behind a pillar on the right side of the map.
+  - id: ch-djose-temple
+    title: Djose Temple
+    summary: Before receiving Ixion
+    steps:
+      - id: s-3f6616
+        text: 4000 Gil
+        location: Djose Temple (Exterior)
+        note: After the cutscenes outside the temple, on the west side, next to Lucil.
+      - id: s-e74ed1
+        text: Ability Sphere x4
+        location: Djose Temple (Exterior)
+        note: North-east of the save point.
+      - id: s-168f08
+        text: Ether
+        location: Djose Temple - Great Hall
+        note: Chest in the main hall, hidden in a corner of the north wing.
+      - id: s-139192
+        text: Remedy
+        location: Djose Temple - Nun's Chamber
+        note: Inside the north room.
+      - id: s-20870d
+        text: Mega Phoenix
+        location: Djose Temple - Monk's Chamber
+        note: Inside the south room.
+      - id: s-b3f39f
+        text: Magic Sphere
+        location: Djose Temple - Cloister of Trials
+        note: Complete the secret trial using a destruction sphere.
+  - id: ch-djose-departure
+    title: Djose Temple (departing)
+    summary: After receiving Ixion. The pilgrimage road NPCs are missable.
+    steps:
+      - id: s-1b7de3
+        text: Switch Hitter
+        location: Djose Temple - Inn
+        note: "Once you have Ixion, go into the inn; a chest behind the counter is now accessible."
+      - id: s-9613ec
+        text: Halberd
+        location: Djose - Pilgrimage road
+        note: On leaving the temple, talk to the first purple crusader.
+      - id: s-4c024e
+        text: Hi-Potion x2
+        location: Djose - Pilgrimage road
+        note: Talk to the priest.
+      - id: s-00d911
+        text: Potion x10
+        location: Djose - Pilgrimage road
+        note: At the end of the bridge, a blue crusader gives this.
+      - id: s-e80842
+        text: Confirm Item Collector I (26), II (60), IV (2)
+  - id: ch-moonflow
+    title: Moonflow
+    summary: South bank to Guadosalam
+    steps:
+      - id: s-0e5a29
+        text: Lv 1 Key Sphere x3
+        location: South Bank Road
+        note: Chest near the start, on a small side path.
+      - id: s-90ff34
+        text: X-Potion
+        location: South Bank Road
+        note: Chest next to Biran and Yenke.
+      - id: s-7183bb
+        text: Lv 1 Key Sphere x3
+        location: South Bank Road
+        note: Following the path, before Belgemine, on a small hidden side path.
+      - id: s-d9bd0c
+        text: Magic Def Sphere
+        location: South Bank Road
+        note: At the end of the path, on a west side path.
+      - id: s-65b787
+        text: Phoenix Down x2
+        location: South Wharf
+        note: Next to Oaka.
+      - id: s-4238d1
+        text: 5000 Gil
+        location: South Wharf
+        note: After the Lucil scene, chest next to Lulu.
+      - id: s-96nwmh
+        text: Al Bhed Primer XII
+        location: North Wharf
+        note: After defeating the Extractor, up the ramp on the platform.
+      - id: s-bcdb25
+        text: Ether
+        location: North Wharf
+        note: After defeating the Extractor, transition two areas west. The chest is next to the bank.
+      - id: s-b13256
+        text: Antidote x4
+        location: North Bank
+        note: After Rikku joins, the first chest you see on the path.
+      - id: s-740df5
+        text: Mega-Potion
+        location: North Bank Road
+        note: In the next area, before entering Guadosalam.
+  - id: ch-guadosalam
+    title: Guadosalam
+    summary: The Seymour manor chest is a one-time chance.
+    steps:
+      - id: s-4c4961
+        text: Mega-Potion
+        location: Guadosalam
+        note: Next to Seymour's Manor.
+      - id: s-936672
+        text: 3000 Gil
+        location: Guadosalam - Left House
+        note: In the house at the west, behind a pillar. Very hidden.
+      - id: s-54lizn
+        text: Al Bhed Primer XIII
+        note: In a house on the ground just to the left of a central tree pillar.
+      - id: s-ff716b
+        text: Elixir
+        location: Guadosalam
+        note: From the previous house, walk south past 2 NPCs.
+      - id: s-7a00f7
+        text: Hi-Potion x2
+        location: Guadosalam - Seymour Manor
+        note: "You only get one chance. After entering the manor, climb the stairs; the chest is on the second floor."
+      - id: s-557c8a
+        text: Lightning Marble x8
+        location: Road to Farplane
+        note: On the first screen of the path, hidden behind the west wall. Mash the confirm button around the wall.
+  - id: ch-thunder-plains
+    title: Thunder Plains
+    summary: Backtrack to the Farplane chest once you reach the plains. Lightning-dodge rewards do not count toward Item Collector.
+    steps:
+      - id: s-f0f713
+        text: Mars Crest
+        location: Farplane
+        note: "Once you have reached the Thunder Plains, backtrack to the Farplane; the chest is on the west."
+      - id: s-b2342a
+        text: Phoenix Down x2
+        location: Thunder Plains - South
+        note: South of the save point.
+      - id: s-92d38e
+        text: Hi-Potion x2
+        location: Thunder Plains - South
+        note: North-west of the save point.
+      - id: s-250869
+        text: 5000 Gil
+        location: Thunder Plains - South
+        note: "From the previous chest continue north to the Cactuar statue; the chest is behind it."
+      - id: s-053a3a
+        text: Water Ball
+        location: Thunder Plains - South
+        note: From Shelinda, go north-east on a hidden path.
+      - id: s-ehpjw5
+        text: Al Bhed Primer XIV
+        location: Thunder Plains - Travel Agency
+        note: "Talk to Rin and tell him that the study of the Al Bhed language is going 'Okay'"
+      - id: s-300218
+        text: Yellow Shield
+        location: Thunder Plains - Travel Agency
+        note: "After the Rikku cutscenes, walk outside the agency. A man in a blue shirt (Waltz) photographs Yuna and leaves an item on the ground; pick it up."
+      - id: s-27cc95
+        text: Dodge 50 lightning bolts in a row
+        location: Thunder Plains
+        note: Optional. Does not count toward Item Collector, but gives 3 Strength Spheres, a big power-up. Dodge-based achievements for 200 dodges can wait until you have No Encounter armor.
+      - id: s-c2363b
+        text: X-Potion
+        location: Thunder Plains - North
+        note: South-east, right at the entrance.
+      - id: s-e52a87
+        text: Ether
+        location: Thunder Plains - North
+        note: After the cutscene where Yuna reveals the marriage plans. Behind the tower where they talk.
+      - id: s-c4bfc0
+        text: 2000 Gil
+        location: Thunder Plains - North
+        note: From the previous chest, all the way to the north-east.
+      - id: s-50aad3
+        text: Remedy
+        location: Thunder Plains - North
+        note: "From the previous chest go north-west; near the end, hidden in a corner."
+  - id: ch-macalania-woods-1
+    title: Macalania Woods (before Spherimorph)
+    summary: Butterfly minigames come in pairs and must be done CENTER first, then NORTH, or Item Collector III breaks. This pair is before the boss.
+    steps:
+      - id: s-8d3059
+        text: Sleepy Cait Sith
+        location: Macalania Woods - South
+        note: After starting the thin path, on the far west side, behind the tree.
+      - id: s-3de48f
+        text: 2000 Gil
+        location: Macalania Woods - South
+        note: Near the end of the path.
+      - id: s-9de370
+        text: Phoenix Down x3
+        location: Macalania Woods - Center
+        note: Following the path, behind a tree.
+      - id: s-b59de9
+        text: MP Sphere
+        location: Macalania Woods - Center
+        note: Butterfly minigame 1. Do this one first.
+      - id: s-764f6a
+        text: Remedy
+        location: Macalania Woods - North
+        note: After walking a bit west, behind the tree.
+      - id: s-20e73a
+        text: Ether
+        location: Macalania Woods - North
+        note: Butterfly minigame 2. Do this one second.
+      - id: s-3b69fa
+        text: Defeat Spherimorph
+        location: Macalania Woods
+        note: The next pair of butterfly minigames unlocks after this boss.
+  - id: ch-macalania-woods-2
+    title: Macalania Woods (after Spherimorph)
+    summary: "Backtrack for the second butterfly pair: center first, then north."
+    steps:
+      - id: s-9qz6pq
+        text: Al Bhed Primer XV
+        note: Near the save sphere where Auron carves a hole in the pathway. On the right side of the screen.
+      - id: s-b888cb
+        text: Megaelixir x2
+        location: Macalania Woods - Center
+        note: Butterfly minigame 3. Do this one first.
+      - id: s-495302
+        text: Elixir x2
+        location: Macalania Woods - North
+        note: Butterfly minigame 4. Do this one second. The next pair unlocks once you get the airship.
+  - id: ch-macalania-crevasse
+    title: Lake Macalania - Crevasse
+    summary: Before the temple
+    steps:
+      - id: s-ixlk1k
+        text: Al Bhed Primer XVI
+        location: Lake Macalania
+        note: Outside the travel agency before the Crawler fight.
+      - id: s-ceb8c2
+        text: Mega-Potion
+        location: Crevasse
+        note: After defeating the Crawler and the snow bike scene, you spawn right in front of the chest.
+      - id: s-6020fe
+        text: Lv 1 Key Sphere
+        location: Crevasse
+        note: "Backtrack a bit on the same screen; the chest is hidden on the thin south-east path."
+  - id: ch-macalania-temple
+    title: Macalania Temple
+    summary: Talk to Tromell before triggering the Jyscal cutscene. Many NPC items here are missable.
+    steps:
+      - id: s-163d34
+        text: 400 Gil
+        location: Macalania Temple - Exterior
+        note: Talk to the Al Bhed sitting next to where you start.
+      - id: s-74d884
+        text: Shell Targe
+        location: Macalania Temple - Hall
+        note: Talk to Tromell immediately. If you trigger the Jyscal cutscene first, you lose this item.
+      - id: s-6ebad9
+        text: 5000 Gil
+        location: Macalania Temple - Hall
+        note: On the west side.
+      - id: s-c6d7ef
+        text: X-Potion x2
+        location: Macalania Temple - Hall
+        note: On the south side.
+      - id: s-82a6c6
+        text: Phoenix Down x3
+        location: Macalania Temple - West room
+        note: At the back of the room, behind the seated people.
+      - id: s-90a340
+        text: Ether
+        location: Macalania Temple - West room
+        note: Talk to the seated man in the brown shirt.
+      - id: s-886e8f
+        text: Elixir
+        location: Macalania Temple - West room
+        note: Talk to the seated monk in the purple coat.
+      - id: s-b7c045
+        text: Remedy x2
+        location: Macalania Temple - East room
+        note: Chest at the back of the room.
+      - id: s-63af4f
+        text: Hi-Potion x2
+        location: Macalania Temple - East room
+        note: Talk to the man in yellow robes.
+      - id: s-6fb43d
+        text: Luck Sphere
+        location: Macalania Temple - Cloister of Trials
+        note: Use the destruction sphere. Not technically missable, but a superboss guards it later, so get it now.
+  - id: ch-lake-bottom
+    title: Lake Macalania - Lake Bottom (Sin)
+    summary: After the Wendigo battle
+    steps:
+      - id: s-06c44b
+        text: Lv 2 Key Sphere
+        location: Lake Bottom
+        note: "After the Wendigo boss, in the new area next to Kimahri. The chest is invisible; mash the confirm button."
+      - id: s-2c7925
+        text: Avenger
+        location: Lake Bottom
+        note: After Yuna wakes up and Rikku says she'll never be like Lulu, a chest appears next to Auron. Does not count toward the total, but take it in case that gets fixed.
+  - id: ch-sanubia-desert
+    title: Sanubia Desert
+    summary: Nothing here is missable, but clear it before heading to Home.
+    steps:
+      - id: s-6b6ce5
+        text: Remedy x4
+        location: Sanubia Desert - Oasis
+        note: Right there in the water.
+      - id: s-b1bd9e
+        text: Al Bhed Potion x8
+        location: Sanubia Desert - Oasis
+        note: Next to where you find Wakka.
+      - id: s-cf50a2
+        text: Ether x2
+        location: Sanubia Desert - East
+        note: "Next to the save point where you find Rikku; two chests here."
+      - id: s-8763d0
+        text: Al Bhed Potion x8
+        location: Sanubia Desert - East
+        note: Second chest by the same save point.
+      - id: s-921847
+        text: Hi-Potion x4
+        location: Sanubia Desert - East
+        note: Continue along the path until you can branch west.
+      - id: s-dd443b
+        text: Hi-Potion x4
+        location: Sanubia Desert - Central
+        note: Go straight north, inside a mini ruin.
+      - id: s-582903
+        text: X-Potion x2
+        location: Sanubia Desert - Central
+        note: From the last chest go south-west, to the left of the rocks.
+      - id: s-9dc110
+        text: Mega-Potion x2
+        location: Sanubia Desert - Central
+        note: From the last chest go straight west, at the end of the path.
+      - id: s-5000cc
+        text: Al Bhed Potion x8
+        location: Sanubia Desert - Central
+        note: "From the last chest, hug the fence to the save point; the chest is next to it."
+      - id: s-2c7f09
+        text: Elixir
+        location: Sanubia Desert - Central
+        note: "From the save point go all the way west, then south; hidden in a corner."
+      - id: s-764665
+        text: Lv 2 Key Sphere
+        location: Sanubia Desert - Central
+        note: "Go a bit north into the ruins in the center; there are two chests here."
+      - id: s-2d1db8
+        text: 10000 Gil
+        location: Sanubia Desert - Central
+        note: Second chest in the central ruins. Afterward, take the north-west exit.
+      - id: s-douou1
+        text: Al Bhed Primer XVII
+        location: Sanubia Desert - Central
+        note: East of the nort-east exit inside of some ruins.
+      - id: s-klqhqp
+        text: Al Bhed Primer XVIII
+        location: Sanubia Desert - Central
+        note: Near the north west exit next to the signpost.
+      - id: s-25e76a
+        text: Hi-Potion x8
+        location: Sanubia Desert - North
+        note: "Hug the west border while going north; the chest is in the rubble."
+      - id: s-35d712
+        text: Venus Crest
+        location: Sanubia Desert - North
+        note: West of the previous chest, inside the sand pit without a monster. Does not count toward Item Collector, but take it anyway.
+      - id: s-9ea725
+        text: Mega-Potion x3
+        location: Sanubia Desert - North
+        note: "Keep hugging the border going north; hidden between the rubble."
+      - id: s-0c8263
+        text: X-Potion x2
+        location: Sanubia Desert - North
+        note: From the previous chest, straight north.
+      - id: s-3e4ebd
+        text: Megalixir x3
+        location: Sanubia Desert - North
+        note: From the previous chest, inside a sand pit. Two treasures sit in two separate pits.
+      - id: s-549250
+        text: Teleport Sphere x2
+        location: Sanubia Desert - North
+        note: The second chest, in the other sand pit.
+  - id: ch-home-main-corridor
+    title: Home (main corridor)
+    summary: Everything in Home is missable, including the Al Bhed primers. Read every note.
+    steps:
+      - id: s-b797b0
+        text: Hi-Potion x2
+        location: Home - Exterior
+        note: Inspect the body of the yellow Al Bhed. Does not count toward Item Collector.
+      - id: s-de0089
+        text: Al Bhed Primer XIX
+        location: Home - Exterior
+        note: "On the west side of the area. Do not use the primer transfer from another save file; it breaks Item Collector IV."
+      - id: s-b80a15
+        text: Al Bhed Potion x4
+        location: Home - Main Corridor
+        note: "After the two initial fights (bombs and dual horns) you control Tidus in a corridor. Run downstairs; the chest is hidden by smoke soon after."
+      - id: s-6da8e6
+        text: Al Bhed Primer XX
+        location: Home - Main Corridor
+        note: "Backtrack south and upstairs, take the door on the left; it is on top of the bed. The next two chests are minigames you must not fail, so save first if you want a fallback."
+      - id: s-4b3e0e
+        text: Friend Sphere
+        location: Home - Main Corridor
+        note: "Enter three passwords: Sorry (middle bottom), then Wait (middle right), then Pardon (center)."
+      - id: s-bf7aaf
+        text: Elixir
+        location: Home - Main Corridor
+        note: Enter the password Elixir (middle top).
+      - id: s-4cb54e
+        text: Al Bhed Potion x6
+        location: Home - Main Corridor
+        note: "Back in the corridor, go all the way north; hidden in the rubble."
+      - id: s-744052
+        text: Al Bhed Primer XXI
+        location: Home - Main Corridor
+        note: "From the last chest, backtrack a bit and take the east corridor; the primer is next to the door at the end."
+      - id: s-3524b2
+        text: Special Sphere
+        location: Home - Main Corridor
+        note: "Enter the door; this is the top chest. The password is randomized each time but easy with a few Al Bhed primers. You can retry."
+      - id: s-c8fbff
+        text: Skill Sphere
+        location: Home - Main Corridor
+        note: "Same room, south chest. Choose the options in this order: 3rd, 4th, 2nd, 1st."
+      - id: s-3dd639
+        text: Confirm Item Collector IV (8) and primers XIX, XX and XXI in key items
+        note: Do this before moving on. Save, then continue the story through the west corridor door.
+  - id: ch-home-west-corridor
+    title: Home (west corridor)
+    summary: After the cutscenes. All of these are missable.
+    steps:
+      - id: s-40f120
+        text: Lv 4 Key Sphere
+        location: Home - Main Corridor 2
+        note: "After the cutscenes, walk downstairs and look at the left side; the chest is hidden from the camera."
+      - id: s-e23609
+        text: Lv 2 Key Sphere
+        location: Home - Main Corridor 2
+        note: Same room, to the right of the stairs. Once you have it, it is safe to continue to the next room.
+      - id: s-5a414b
+        text: 10000 Gil
+        location: Home - Main Corridor 3
+        note: After the cutscene revealing what happens to summoners, run straight left.
+  - id: ch-airship-evrae
+    title: Airship (before Evrae)
+    summary: Before the fight with Evrae
+    steps:
+      - id: s-1820bf
+        text: Al Bhed Potion x4
+        location: Airship - Cabin
+        note: In the observation deck, an Al Bhed in the corner gives you potions. Does not count toward Item Collector.
+      - id: s-e25799
+        text: Talk to Rin
+        location: Airship - Cabin
+        note: "Possibly With a few Al Bhed primers in your possession he compliments your accent, which raises Item Collector IV by one (IV-12) even though he gives no item. 19 primers is enough. Do not use the primer transfer from another save file; it breaks Item Collector IV. If you completed the primer collection that way, this is bugged."
+  - id: ch-bevelle-temple
+    title: Bevelle Temple
+    summary: Priest's Passage through the Cloister of Trials
+    steps:
+      - id: s-e608dd
+        text: Al Bhed Primer XXII
+        location: Bevelle - Priests Passage
+        note: After all the monk battles on the bridge and before entering the Cloister of Trials, look at the ground.
+      - id: s-0262ff
+        text: HP Sphere
+        location: Bevelle - Cloister of Trials
+        note: "Reward for finishing the temple; cannot be missed. It is also the destruction sphere treasure."
+      - id: s-ea5ab1
+        text: Knight Lance
+        location: Bevelle - Cloister of Trials
+        note: Bring 2 Bevelle spheres to the end to open a chest on the western side. Does not count toward Item Collector.
+  - id: ch-via-purifico
+    title: Via Purifico
+    summary: The navigation is too involved to write out chest by chest, so follow the video guide. All seven chests are missable and also count toward Item Collector I.
+    steps:
+      - id: s-99cac0
+        text: Mega-Potion
+        location: Via Purifico
+        note: "Follow the video guide: https://www.youtube.com/watch?v=lj5oMrcnA4E"
+      - id: s-748928
+        text: Wht Magic Sphere
+        location: Via Purifico
+        note: "Follow the video guide: https://www.youtube.com/watch?v=lj5oMrcnA4E"
+      - id: s-e3784e
+        text: Elixir
+        location: Via Purifico
+        note: "Follow the video guide: https://www.youtube.com/watch?v=lj5oMrcnA4E"
+      - id: s-04222d
+        text: Blk Magic Sphere
+        location: Via Purifico
+        note: "Follow the video guide: https://www.youtube.com/watch?v=lj5oMrcnA4E"
+      - id: s-bb8f83
+        text: Lucid Ring
+        location: Via Purifico
+        note: "Follow the video guide: https://www.youtube.com/watch?v=lj5oMrcnA4E"
+      - id: s-be8089
+        text: Skill Sphere
+        location: Via Purifico
+        note: "Follow the video guide: https://www.youtube.com/watch?v=lj5oMrcnA4E"
+      - id: s-803b1f
+        text: 10000 Gil
+        location: Via Purifico
+        note: "Follow the video guide: https://www.youtube.com/watch?v=lj5oMrcnA4E"
+      - id: s-08a0a3
+        text: Confirm Item Collector I (33)
+        note: These seven chests count toward Item Collector I as well.
+  - id: ch-via-purifico-underwater
+    title: Via Purifico (underwater)
+    summary: Win the Evrae battle on your first attempt at it
+    steps:
+      - id: s-bb3bbd
+        text: Defeat Zombie Evrae
+        location: Via Purifico (Underwater)
+        note: Make sure you win the first battle.
+      - id: s-0e31c6
+        text: Rematch
+        location: Via Purifico (Underwater)
+        note: Right after defeating Evrae.
+      - id: s-4913ad
+        text: Avenger
+        location: Via Purifico (Underwater)
+        note: In the same hallway, around the corner.
+  - id: ch-macalania-after-bevelle
+    title: Macalania Woods (after Bevelle)
+    summary: After the love scene and the resting scene
+    steps:
+      - id: s-e55e71
+        text: Lucid Ring
+        location: Macalania Woods
+        note: "After the Yuna and Tidus scenes, go to the north area from where you regain control; the chest is hidden behind the tree."
+  - id: ch-calm-lands
+    title: Calm Lands
+    summary: Nothing here is missable.
+    steps:
+      - id: s-bbada8
+        text: Get a chocobo
+        location: Calm Lands
+        note: Optional. It does not need full training, but there are chocobo achievements and it speeds up travel.
+      - id: s-a32d9b
+        text: 5000 Gil
+        location: Calm Lands
+        note: "Run to the south-east; there are two chests here."
+      - id: s-0706eb
+        text: 10000 Gil
+        location: Calm Lands
+        note: Second chest in the south-east.
+      - id: s-ab8948
+        text: Lv 2 Key Sphere
+        location: Calm Lands
+        note: On top of the Travel Agency, just above the save point.
+      - id: s-cqglm9
+        text: Al Bhed Primer XXIII
+        location: Calm Lands
+        note: In the north-west corner, just north of the Travel Agency.
+      - id: s-0e7374
+        text: Rusty Sword
+        location: Calm Lands
+        note: After defeating the DefenderX boss, descend toward the gorge and run east.
+  - id: ch-cavern-stolen-fayth
+    title: Cavern of the Stolen Fayth
+    summary: "Nothing here is missable; the guide recommends doing it now and getting Yojimbo. Several chests count twice toward Item Collector IV."
+    steps:
+      - id: s-3e2e3c
+        text: Defeat every Ghost you meet
+        location: Cavern of the Stolen Fayth
+        note: "Optional. Each has a 10% chance to drop No Encounter armor."
+      - id: s-65e20d
+        text: Mega Elixir
+        location: Main Cavern
+        note: Follow the path and take the first east branch. Counts as two items (26 to 28).
+      - id: s-30cb4d
+        text: Lv 2 Key Sphere
+        location: Main Cavern
+        note: Continue north, then east. Counts twice.
+      - id: s-3c02f9
+        text: Fortune Sphere
+        location: Main Cavern
+        note: Continue west, then all the way north. Counts twice.
+      - id: s-df7c68
+        text: Mega-Potion x2
+        location: Main Cavern
+        note: Backtrack a bit, then west, then north. Counts twice.
+      - id: s-seyu6g
+        text: Al Bhed Primer XXV
+        location: Main Cavern
+        note: To the west of the save sphere.
+      - id: s-403709
+        text: Obtain Yojimbo
+        location: Main Cavern
+        note: Not strictly missable, but the guide recommends doing it now.
+      - id: s-5ddac1
+        text: Flexible Arm
+        location: Main Cavern
+        note: After the Yojimbo fight, use the teleporter to the west.
+      - id: s-a7ac10
+        text: MP Sphere
+        location: Main Cavern
+        note: "Use the teleporter on the right; there are two chests here."
+      - id: s-de3a8d
+        text: X-Potion x2
+        location: Main Cavern
+        note: Second chest by the right teleporter.
+  - id: ch-gagazet-trail
+    title: Mount Gagazet (Mountain Trail)
+    summary: Nothing here is missable.
+    steps:
+      - id: s-7ce30d
+        text: 20000 Gil
+        location: Mountain Trail
+        note: Right at the start, after the Biran and Yenke fight, on the hidden path to the east.
+      - id: s-c840ae
+        text: Mega-Potion x2
+        location: Mountain Trail
+        note: Still at the entrance, north-west of the first chest in a small hidden square.
+      - id: s-51950e
+        text: Defending Bracer
+        location: Mountain Trail
+        note: After running a bit, look for a small spiral hidden path.
+      - id: s-f58853
+        text: Lv 4 Key Sphere
+        location: Mountain Trail
+        note: After the Waltz scene, proceed until you see a small branch with two chests.
+      - id: s-6631ea
+        text: HP Sphere
+        location: Mountain Trail
+        note: Second chest on the same branch.
+      - id: s-ab034a
+        text: Jupiter Crest
+        location: Mountain Trail
+        note: After the Seymour Flux battle, on the same screen behind some pillars, out of camera view.
+  - id: ch-gagazet-cave
+    title: Mount Gagazet (Cave)
+    summary: Before leaving the cave
+    steps:
+      - id: s-12309d
+        text: Lv 1 Key Sphere
+        location: Mountain Cave
+        note: Reward for the first Wakka minigame (the blitzball throw).
+      - id: s-6c6520
+        text: Fortune Sphere
+        location: Mountain Cave
+        note: "Reward for the second minigame, underwater; hard to spot. Does not count toward Item Collector."
+      - id: s-1651a6
+        text: Pep Talk
+        location: Mountain Cave
+        note: "Go back to the save point, then west, then north; cross the new patch for a chest."
+      - id: s-91b0a3
+        text: Return Sphere
+        location: Mountain Cave
+        note: Go back to the save point, then north-east. After a swim you will find two chests.
+      - id: s-f806f6
+        text: Recovery Ring
+        location: Mountain Cave
+        note: Second chest after the swim.
+  - id: ch-zanarkand-ruins
+    title: Zanarkand Ruins
+    summary: Through the Yunalesca fight. The Sun Crest only appears after it.
+    steps:
+      - id: s-4a120c
+        text: Fortune Sphere
+        location: Zanarkand - Overpass
+        note: Along the path.
+      - id: s-1a805b
+        text: Spiritual Targe
+        location: Zanarkand - Overpass
+        note: Near the end of the overpass, on a small south-facing platform.
+      - id: s-9c5f63
+        text: 10000 Gil
+        location: Zanarkand - Interior
+        note: After running north a bit, take the hidden path going east, then south.
+      - id: s-ac623a
+        text: Friend Sphere
+        location: Zanarkand - Interior
+        note: After the save point, on the east fork.
+      - id: s-5c9a0a
+        text: Lv 3 Key Sphere
+        location: Zanarkand - Interior
+        note: After the Braska, Jecht and Auron cutscene, backtrack a few steps to a lower path for a hidden chest.
+      - id: s-85b18e
+        text: Luck Sphere
+        location: Zanarkand - Corridor
+        note: On the next screen, near the beginning, on the east side.
+      - id: s-8ffa7a
+        text: Sun Crest
+        location: Zanarkand - Yunalesca
+        note: "Do not forget this one. After the Yunalesca battle, stay on the screen, go north and take the staircase; it teleports you to the same room, where the chest is now waiting."
+  - id: ch-airship-first-sweep
+    title: Airship (first sweep)
+    summary: The world opens up. Butterfly minigame 5 (center) must come before 6 (north).
+    steps:
+      - id: s-7ee32d
+        text: Cloudy Mirror
+        location: Remiem Temple
+        note: Win a single chocobo race under Remiem Temple. You do not need any of the treasure chests in the minigame.
+      - id: s-m7dpm1
+        text: Al Bhed Primer XXIV
+        location: Remiem Temple
+        note: In the north-west corner.
+      - id: s-fe58cf
+        text: 4000 Gil
+        location: Macalania
+        note: "Fly to Lake Macalania; the chest next to the Travel Agency is now available."
+      - id: s-6b09d7
+        text: Celestial Mirror
+        location: Macalania
+        note: Upgrade the Cloudy Mirror by finishing the side quest of finding the father, then the son.
+      - id: s-8bb9f8
+        text: Teleport Sphere
+        location: Macalania (Center)
+        note: "Butterfly minigame 5. Do this one first; doing 6 first loses this achievement."
+      - id: s-0d355e
+        text: Jupiter Sigil
+        location: Macalania (North)
+        note: "Butterfly minigame 6. Do this one second. Does not count toward Item Collector III; sigils blocked behind minigames never do."
+      - id: s-3efdc1
+        text: Magistral Rod
+        location: Zanarkand Cloister of Trials
+        note: Finish the Cloister of Trials and use a destruction sphere. Do not go all the way to the Yunalesca screen or Dark Bahamut will punish you.
+      - id: s-478223
+        text: Victorious
+        location: "Air: Besaid Ruins 1"
+        note: "Airship password: VICTORIOUS"
+      - id: s-07cebe
+        text: Murasame
+        location: "Air: Besaid Ruins 2"
+        note: "Airship password: MURASAME"
+      - id: s-ed1b22
+        text: Dragon Lance
+        location: Besaid Falls
+        note: Airship search at X 30, Y 74.
+      - id: s-53533b
+        text: Sonar
+        location: Mi'ihen Ruins
+        note: Airship search at X 34, Y 56.
+      - id: s-d54740
+        text: Phantom Bangle
+        location: Battle Site
+        note: Airship search at X 40, Y 58.
+      - id: s-cfa1ea
+        text: Ascalon
+        location: Sanubia Sands
+        note: Airship search at X 14, Y 43.
+      - id: s-418148
+        text: Unlock Baaj Temple
+        location: Baaj Temple
+        note: Airship search at X 13, Y 59. Defeat the boss to keep progressing. It can drop a No Encounter weapon, and the guide suggests resetting until you get one.
+      - id: s-0aca9a
+        text: Mega Phoenix x4
+        location: Baaj Temple
+        note: In the room with all the destruction spheres, chest on the left side.
+      - id: s-ac0282
+        text: Megalixir
+        location: Baaj Temple
+        note: Same room, chest on the right side.
+      - id: s-57feba
+        text: Soft x4
+        location: Mushroom Rock
+        note: Fly to Djose Highroad, run left and climb the boxes. After one screen transition you will find the chest.
+  - id: ch-airship-temples
+    title: Airship (temple revisits)
+    summary: "Unlocked after the Sin battles on the airship; revisit the old temples."
+    steps:
+      - id: s-abebee
+        text: Luck Sphere
+        location: Kilika Temple
+        note: Fly to Kilika Port and redo the Cloister of Trials. Ifrit gives you 1 item, then there are 3 chests inside.
+      - id: s-a6f83c
+        text: Agility Sphere
+        location: Kilika Temple
+        note: Same visit, chest inside.
+      - id: s-985405
+        text: Defense Sphere
+        location: Kilika Temple
+        note: Same visit, chest inside.
+      - id: s-eb1b99
+        text: Accuracy Sphere
+        location: Kilika Temple
+        note: Same visit, chest inside.
+      - id: s-ff8fb2
+        text: Luck Sphere
+        location: Djose Temple
+        note: Fly to Djose Highroad and redo the Cloister of Trials. Ixion gives you 1 item, then there are 2 chests inside.
+      - id: s-9b7bb2
+        text: Agility Sphere
+        location: Djose Temple
+        note: Same visit, chest inside.
+      - id: s-68971c
+        text: Mag Def Sphere
+        location: Djose Temple
+        note: Same visit, chest inside.
+      - id: s-b70deb
+        text: Confirm Item Collector II (70)
+        note: This should complete Item Collector II.
+  - id: ch-airship-side-quests
+    title: Airship (side quests and Omega Ruins)
+    summary: Calm Lands, Bikanel, Monster Arena, Remiem and Omega Ruins.
+    steps:
+      - id: s-a788ba
+        text: Strength Sphere
+        location: Cavern of the Stolen Fayth
+        note: "Fly to the Calm Lands and enter Yojimbo's fayth chamber. You do not need to defeat Dark Yojimbo; use the teleporter to back out."
+      - id: s-45fde6
+        text: Complete the 10 Cactuar quest
+        location: Bikanel Island
+        note: One cactuar minigame has 3 chests, but those do not count toward Item Collector.
+      - id: s-28c111
+        text: Friend Sphere
+        location: Sanubia Sands
+        note: After the Cactuar quest, the chest on the right counts toward Item Collector III.
+      - id: s-031ccb
+        text: Capture one of each Calm Lands species
+        location: Monster Arena
+        note: Then talk to the Monster Arena tamer.
+      - id: s-173ca2
+        text: Capture one of each Mount Gagazet species
+        location: Monster Arena
+        note: This gives you the Blossom Crown.
+      - id: s-41aba3
+        text: Defeat the Remiem Temple aeons up to Bahamut
+        location: Remiem Temple
+        note: This gives you the Flower Sceptre.
+      - id: s-fe20c6
+        text: Defense Sphere
+        location: Remiem Temple
+        note: Enter the Magus Sisters' chamber 2 times to receive the item.
+      - id: s-19c6cd
+        text: Unlock Omega Ruins
+        location: Omega Ruins
+        note: "Airship search at X 72, Y 35. You do not need the 12 chests that despawn if you fail the order; only the 3 unmissable ones."
+      - id: s-lqmugd
+        text: Al Bhed Primer XVI
+        location: Omega Ruins
+        note: Next to the north-most set of chests.
+      - id: s-2e171e
+        text: Teleport Sphere
+        location: Omega Ruins
+        note: Activate the sigil at the back and take the chest from the bridge that rises. Does not count toward Item Collector.
+      - id: s-a551a5
+        text: Friend Sphere
+        location: Omega Ruins
+        note: On the screen where you fight Omega, move to the left platforms right at the start.
+      - id: s-8ddf2a
+        text: Magic Sphere
+        location: Omega Ruins
+        note: "After defeating Omega, backtrack all the way to his screen; a chest is waiting."
+      - id: s-3b4088
+        text: Confirm Item Collector IV (52)
+        note: This should complete Item Collector IV.
+  - id: ch-dark-aeon-cloisters
+    title: Besaid and Macalania Cloisters (Dark Aeons)
+    summary: Requires a much stronger party for Dark Valefor and Dark Shiva. Yojimbo is allowed only if you already unlocked the Dark Aeon achievements.
+    steps:
+      - id: s-e3ba5c
+        text: Evasion Sphere
+        location: Besaid Cloister of Trials
+        note: Valefor gives you 1 item, then there are 4 more to collect.
+      - id: s-cbafb8
+        text: Potion x2
+        location: Besaid Cloister of Trials
+        note: Same visit.
+      - id: s-bd5d8f
+        text: Elixir
+        location: Besaid Cloister of Trials
+        note: Same visit.
+      - id: s-417c57
+        text: Wht Magic Sphere
+        location: Besaid Cloister of Trials
+        note: Same visit.
+      - id: s-b87e83
+        text: Hi-Potion
+        location: Besaid Cloister of Trials
+        note: Same visit.
+      - id: s-03417d
+        text: Magic Sphere
+        location: Macalania Cloister of Trials
+        note: Shiva gives you 1 item, then there are 2 more to collect.
+      - id: s-e1432e
+        text: Mag Def Sphere
+        location: Macalania Cloister of Trials
+        note: Same visit.
+      - id: s-075155
+        text: Accuracy Sphere
+        location: Macalania Cloister of Trials
+        note: Same visit.
+      - id: s-367cb4
+        text: Confirm Item Collector III (70)
+        note: This should complete Item Collector III.
+  - id: ch-sin
+    title: Sin
+    summary: The final dungeon. Finish all earlier chapters first.
+    steps:
+      - id: s-d90c00
+        text: Phantom Ring
+        location: Sin - Sea of Sorrow
+        note: "Follow the video guide: https://www.youtube.com/watch?v=hUZeN99gMik"
+      - id: s-2c1430
+        text: Special Sphere
+        location: Sin - Sea of Sorrow
+        note: "Follow the video guide: https://www.youtube.com/watch?v=hUZeN99gMik"
+      - id: s-3a024a
+        text: Elixir
+        location: Sin - Sea of Sorrow
+        note: "Follow the video guide: https://www.youtube.com/watch?v=hUZeN99gMik"
+      - id: s-b0a782
+        text: Lv 3 Key Sphere
+        location: Sin - Sea of Sorrow
+        note: "Follow the video guide: https://www.youtube.com/watch?v=hUZeN99gMik"
+      - id: s-cbf230
+        text: Wizard Lance
+        location: Sin - Sea of Sorrow
+        note: "Follow the video guide: https://www.youtube.com/watch?v=hUZeN99gMik"
+      - id: s-0ff009
+        text: Lv 4 Key Sphere
+        location: Sin - City of Dying Dreams
+        note: "You need to defeat 35 fiends inside Sin without summoning. Follow the video guide: https://www.youtube.com/watch?v=hUZeN99gMik"
+      - id: s-263861
+        text: Four-On-One
+        location: Sin - City of Dying Dreams
+        note: "Follow the video guide: https://www.youtube.com/watch?v=hUZeN99gMik"
+      - id: s-049cab
+        text: Defending Bracer
+        location: Sin - City of Dying Dreams
+        note: "Follow the video guide: https://www.youtube.com/watch?v=hUZeN99gMik"
+      - id: s-d64246
+        text: Megalixir
+        location: Sin - City of Dying Dreams
+        note: "Follow the video guide: https://www.youtube.com/watch?v=hUZeN99gMik"
+      - id: s-7e3c10
+        text: 20000 Gil
+        location: Sin - City of Dying Dreams
+        note: "Follow the video guide: https://www.youtube.com/watch?v=hUZeN99gMik"
+      - id: s-1f864f
+        text: HP Sphere
+        location: Sin - City of Dying Dreams
+        note: "Follow the video guide: https://www.youtube.com/watch?v=hUZeN99gMik"
+      - id: s-96a023
+        text: Defense Sphere
+        location: Sin - City of Dying Dreams
+        note: "Follow the video guide: https://www.youtube.com/watch?v=hUZeN99gMik"
+      - id: s-e86bf2
+        text: Laevatein
+        location: Sin - City of Dying Dreams
+        note: "Follow the video guide: https://www.youtube.com/watch?v=hUZeN99gMik"
+      - id: s-bb44b2
+        text: Collect the 10 treasures in the ice sequence
+        location: Sin
+        note: These come before facing Braska's Final Aeon and cannot be missed.
+      - id: s-f9e4b7
+        text: Confirm Item Collector I (73)
+        note: This should complete Item Collector I.
