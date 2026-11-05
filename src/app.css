@@ -894,7 +894,7 @@ code {
   min-height: 48px;
   padding: 4px 10px 4px 4px;
   border: 1px solid var(--border);
-  border-radius: 999px;
+  border-radius: 4px;
   background: var(--surface-2);
   color: var(--text);
   font-size: 0.78rem;
@@ -908,7 +908,6 @@ code {
   width: 32px;
   height: 32px;
   flex: 0 0 auto;
-  border-radius: 7px;
   object-fit: cover;
   background: var(--surface);
 }

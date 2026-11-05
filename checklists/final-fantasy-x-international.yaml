@@ -133,6 +133,11 @@ chapters:
     title: Besaid Beach (departure)
     summary: Before boarding the boat
     steps:
+      - id: s-279296
+        text: Get Valefor's second overdrive
+        location: Besaid - Village
+        note: After the night scene, return to the village, talk to the item shop clerk, then the dog.
+        achievementIds: [279296]
       - id: s-7a2f4d
         text: Ether
         location: Besaid - Beach
@@ -241,6 +246,10 @@ chapters:
         text: Al Bhed Primer V
         location: SS Winno - Bridge
         note: On the ground next to the captain
+      - id: s-279213
+        text: Learn the Jecht Shot
+        location: SS Winno - Deck
+        achievementIds: [279213]
   - id: ch-luca
     title: Luca
     summary: "These chests do not currently count toward Item Collector II. Listed in case that gets fixed; if so, add 8 to the II count."
@@ -320,6 +329,11 @@ chapters:
         text: Soft x3
         location: Highroad South
         note: "Do not kick the blitzball; talk to the boy past the ball instead. If you kicked it by accident, leave the screen and return. If he still won't give the item, reload your last save."
+      - id: s-279217
+        text: Defeat Belgemine's Ifrit in a duel
+        location: Highroad South
+        note: No Shield. Start with an overdrive. This is needed to make her appear later.
+        achievementIds: [279217, 279218]
       - id: s-38780d
         text: Lv 1 Sphere
         location: Highroad Central
@@ -360,6 +374,7 @@ chapters:
         text: Defeat the Chocobo Eater
         location: Mi'ihen Travel Agency
         note: This unlocks chocobos. You can lose by getting pushed down the cliff, so be careful.
+        achievementIds: [279219]
       - id: s-09faab
         text: Heat Lance
         location: Highroad - New Road, North
@@ -582,6 +597,11 @@ chapters:
         text: Magic Def Sphere
         location: South Bank Road
         note: At the end of the path, on a west side path.
+      - id: s-279226
+        text: Defeat Belgemine's Ixion
+        location: South Bank Road
+        note: No Aeon deaths. Grand summon Ifrit, heal with Fire, overdrive x2. This is needed to make her appear later.
+        achievementIds: [279225, 279226]
       - id: s-65b787
         text: Phoenix Down x2
         location: South Wharf
@@ -665,10 +685,6 @@ chapters:
         text: Yellow Shield
         location: Thunder Plains - Travel Agency
         note: "After the Rikku cutscenes, walk outside the agency. A man in a blue shirt (Waltz) photographs Yuna and leaves an item on the ground; pick it up."
-      - id: s-27cc95
-        text: Dodge 50 lightning bolts in a row
-        location: Thunder Plains
-        note: Optional. Does not count toward Item Collector, but gives 3 Strength Spheres, a big power-up. Dodge-based achievements for 200 dodges can wait until you have No Encounter armor.
       - id: s-c2363b
         text: X-Potion
         location: Thunder Plains - North
@@ -1014,6 +1030,10 @@ chapters:
       - id: s-08a0a3
         text: Confirm Item Collector I (33)
         note: These seven chests count toward Item Collector I as well.
+      - id: s-oidwdw
+        text: King's Rest
+        note: Aeon battle, no overdrives, no Bahamut. Nulblaze on Shiva vs Ifrit, Ifrit vs Valefor, Ixion vs Bahamut shield on countdown 1
+        achievementIds: [279259]
   - id: ch-via-purifico-underwater
     title: Via Purifico (underwater)
     summary: Win the Evrae battle on your first attempt at it
@@ -1021,7 +1041,8 @@ chapters:
       - id: s-bb3bbd
         text: Defeat Zombie Evrae
         location: Via Purifico (Underwater)
-        note: Make sure you win the first battle.
+        note: No healing items used to damage, no gates. Dark attack with Wakka, Slow from Tidus, Al Bhed potion to counter Spray.
+        achievementIds: [279261]
       - id: s-0e31c6
         text: Rematch
         location: Via Purifico (Underwater)
@@ -1030,6 +1051,14 @@ chapters:
         text: Avenger
         location: Via Purifico (Underwater)
         note: In the same hallway, around the corner.
+  - id: ch-bevelle-regroup
+    title: Bevelle (after regroup)
+    summary: After the group reunites
+    steps:
+      - id: s-lqgjef
+        text: Seymour Natus
+        note: No bio, no aeons, damage only with Tidus, Auron and Yuna, no damage to Mortibody. Null elements, cheer, haste, slap.
+        achievementIds: [279263]
   - id: ch-macalania-after-bevelle
     title: Macalania Woods (after Bevelle)
     summary: After the love scene and the resting scene
@@ -1062,6 +1091,21 @@ chapters:
         text: Al Bhed Primer XXIII
         location: Calm Lands
         note: In the north-west corner, just north of the Travel Agency.
+      - id: s-dqglm8
+        text: Scars Gorge
+        location: Calm Lands
+        note: In the far north get close to the person that will start speaking about the scar.
+        achievementIds: [279265]
+      - id: s-279267
+        text: Defeat Belgemine's Shiva
+        location: Calm Lands
+        note: Only using Valefor. Do not go to Remiem temple first. Charge overdrives before.
+        achievementIds: [279266, 279267]
+      - id: s-279269
+        text: Defeat Defender X
+        location: Calm Lands
+        note: No Aeons, no healing, no Bahamut. Provoke.
+        achievementIds: [279269]
       - id: s-0e7374
         text: Rusty Sword
         location: Calm Lands
@@ -1074,6 +1118,11 @@ chapters:
         text: Defeat every Ghost you meet
         location: Cavern of the Stolen Fayth
         note: "Optional. Each has a 10% chance to drop No Encounter armor."
+      - id: s-279377
+        text: Capture 10 of each fiend in the Cavern of the Stolen Fayth
+        location: Main Cavern
+        note: This unlocks Don Tonberry in the arena.
+        achievementIds: [279377, 279378]
       - id: s-65e20d
         text: Mega Elixir
         location: Main Cavern
@@ -1094,10 +1143,16 @@ chapters:
         text: Al Bhed Primer XXV
         location: Main Cavern
         note: To the west of the save sphere.
+      - id: s-403708
+        text: Defeat Yojimbo
+        location: Main Cavern
+        note: No Aeons, no black magic, no holy
+        achievementIds: [279300, 279301]
       - id: s-403709
         text: Obtain Yojimbo
         location: Main Cavern
-        note: Not strictly missable, but the guide recommends doing it now.
+        note: "Answer question with 'To train as a summoner', then pay 300,000."
+        achievementIds: [279302, 279303]
       - id: s-5ddac1
         text: Flexible Arm
         location: Main Cavern
@@ -1110,10 +1165,36 @@ chapters:
         text: X-Potion x2
         location: Main Cavern
         note: Second chest by the right teleporter.
+  - id: ch-remiem-races
+    title: Remiem races
+    summary: Grabbing Wings of Discovery to cheese upcoming boss achievements.
+    steps:
+      - id: s-279178
+        text: Beat the training times
+        location: Calm Lands
+        achievementIds: [279178, 279179, 279180, 279181, 279182]
+      - id: s-279184
+        text: Win the chocobo race with 3 chests
+        location: Remiem Temple
+        note: Win with 5 chests for the acheivement. But 3 gets us Wings to Discovery which we'll use to cheese boss achievements later.
+        achievementIds: [279184]
+      - id: s-7ee32d
+        text: Cloudy Mirror
+        location: Remiem Temple
+        note: Win a single chocobo race under Remiem Temple. You do not need any of the treasure chests in the minigame.
+        achievementIds: [279183]
+      - id: s-t035ms
+        text: Do not get the Al Bhed Primer here
+        note: We don't want to get too many before we talk to Cid later. There's a later step to come back for this.
   - id: ch-gagazet-trail
     title: Mount Gagazet (Mountain Trail)
     summary: Nothing here is missable.
     steps:
+      - id: s-279271
+        text: Defeat Biran & Yenke
+        location: Mountain Trail
+        note: Steals can get you Lvl 3 key spheres. Kill both at once using Fire Breath when they're both low.
+        achievementIds: [279271]
       - id: s-7ce30d
         text: 20000 Gil
         location: Mountain Trail
@@ -1122,10 +1203,17 @@ chapters:
         text: Mega-Potion x2
         location: Mountain Trail
         note: Still at the entrance, north-west of the first chest in a small hidden square.
+      - id: s-veow6g
+        text: Jecht Sphere Mount Gagazet
+        location: Mountain Trail
+        note: Before the Fayth Cluster in a little side area
       - id: s-51950e
         text: Defending Bracer
         location: Mountain Trail
         note: After running a bit, look for a small spiral hidden path.
+      - id: s-279273
+        text: Talk to O'aka's brother
+        achievementIds: [279273]
       - id: s-f58853
         text: Lv 4 Key Sphere
         location: Mountain Trail
@@ -1134,6 +1222,13 @@ chapters:
         text: HP Sphere
         location: Mountain Trail
         note: Second chest on the same branch.
+      - id: s-279272
+        text: Visit 3 graves for fallen summoners
+        achievementIds: [279272]
+      - id: s-279157
+        text: Defeat Seymour Flux
+        note: No deaths, no removing zombie, no Aeons, no bio. Craft zombieproof by stealing Candle of Life from Don Tonberry in the arena.
+        achievementIds: [279274, 279157]
       - id: s-ab034a
         text: Jupiter Crest
         location: Mountain Trail
@@ -1162,6 +1257,10 @@ chapters:
         text: Recovery Ring
         location: Mountain Cave
         note: Second chest after the swim.
+      - id: s-279158
+        text: Defeat the Sanctuary Keeper
+        note: No reflect, no bio, no Aeons. Armor break & Threaten.
+        achievementIds: [279158]
   - id: ch-zanarkand-ruins
     title: Zanarkand Ruins
     summary: Through the Yunalesca fight. The Sun Crest only appears after it.
@@ -1182,6 +1281,10 @@ chapters:
         text: Friend Sphere
         location: Zanarkand - Interior
         note: After the save point, on the east fork.
+      - id: s-279160
+        text: Defeat the Spectral Keeper
+        note: No Aeons, no moving 5 or more times, no character swaps.
+        achievementIds: [279160]
       - id: s-5c9a0a
         text: Lv 3 Key Sphere
         location: Zanarkand - Interior
@@ -1190,6 +1293,11 @@ chapters:
         text: Luck Sphere
         location: Zanarkand - Corridor
         note: On the next screen, near the beginning, on the east side.
+      - id: s-279162
+        text: Defeat Yunalesca
+        location: Zanarkand - Yunalesca
+        note: Overkill (10k damage), no Aeons, no deaths, no holy, no entrust, only 1 overdrive.
+        achievementIds: [279162]
       - id: s-8ffa7a
         text: Sun Crest
         location: Zanarkand - Yunalesca
@@ -1198,10 +1306,6 @@ chapters:
     title: Airship (first sweep)
     summary: The world opens up. Butterfly minigame 5 (center) must come before 6 (north).
     steps:
-      - id: s-7ee32d
-        text: Cloudy Mirror
-        location: Remiem Temple
-        note: Win a single chocobo race under Remiem Temple. You do not need any of the treasure chests in the minigame.
       - id: s-m7dpm1
         text: Al Bhed Primer XXIV
         location: Remiem Temple
@@ -1218,14 +1322,17 @@ chapters:
         text: Teleport Sphere
         location: Macalania (Center)
         note: "Butterfly minigame 5. Do this one first; doing 6 first loses this achievement."
+        achievementIds: [279279]
       - id: s-0d355e
         text: Jupiter Sigil
         location: Macalania (North)
         note: "Butterfly minigame 6. Do this one second. Does not count toward Item Collector III; sigils blocked behind minigames never do."
+        achievementIds: [279280]
       - id: s-3efdc1
         text: Magistral Rod
         location: Zanarkand Cloister of Trials
         note: Finish the Cloister of Trials and use a destruction sphere. Do not go all the way to the Yunalesca screen or Dark Bahamut will punish you.
+        achievementIds: [279294]
       - id: s-478223
         text: Victorious
         location: "Air: Besaid Ruins 1"
@@ -1254,6 +1361,11 @@ chapters:
         text: Unlock Baaj Temple
         location: Baaj Temple
         note: Airship search at X 13, Y 59. Defeat the boss to keep progressing. It can drop a No Encounter weapon, and the guide suggests resetting until you get one.
+      - id: s-279338
+        text: Defeat Geosgaeno
+        location: Baaj Temple
+        note: Do not succumb to KO punch or stone punch.
+        achievementIds: [279337, 279338]
       - id: s-0aca9a
         text: Mega Phoenix x4
         location: Baaj Temple
@@ -1262,10 +1374,61 @@ chapters:
         text: Megalixir
         location: Baaj Temple
         note: Same room, chest on the right side.
+      - id: s-279186
+        text: Obtain Anima
+        location: Baaj Temple
+        achievementIds: [279186]
       - id: s-57feba
         text: Soft x4
         location: Mushroom Rock
         note: Fly to Djose Highroad, run left and climb the boxes. After one screen transition you will find the chest.
+      - id: s-kinyyd
+        text: Jecht Sphere SS Liki
+        location: SS Liki Bridge
+        note: Next to the captain of the ship. Board the ship in Besaid or Kilika.
+      - id: s-oafxtu
+        text: Jecht Sphere Luca
+        note: Outside the Auroch's locker room
+      - id: s-nbazou
+        text: Jecht Sphere Mi'ihen Highroad
+        location: Mi'ihen Highroad - Oldroad South
+        note: Next to the Mars Crest chest, where the Chocobo Eater would knock you down.
+      - id: s-dn6z6z
+        text: Jecht Sphere Mushroom Rock
+        location: Mushroom Rock - Precipice
+        note: Towards the end of the path.
+      - id: s-w2e1qq
+        text: Jecht Sphere Moonflow
+        location: Moonflow - South
+        note: To the right of the tent with the save sphere.
+      - id: s-myw9c4
+        text: Jecht Sphere Thunder Plains
+        location: Thunder Plains - South
+        note: Towards the end of the path.
+      - id: s-cr2wu1
+        text: Jecht Sphere Macalania Woods
+        location: Macalania Woods
+        note: Near the entrance to Macalania Woods.
+  - id: ch-sin-airship-battles
+    title: Sin airship battles
+    summary: Sin battles on the airship
+    steps:
+      - id: s-7ue4li
+        text: Go to Highbridge, talk to Mika.
+        note: Immediately after getting teleported back to the airship, talk to Wakka.
+        achievementIds: [279177]
+      - id: s-279164
+        text: Defeat the left & right fin
+        note: No Aeons, no move in
+        achievementIds: [279164]
+      - id: s-279166
+        text: Defeat Sin
+        note: No killing Sinspawn Genais, no Aeons.
+        achievementIds: [279166]
+      - id: s-279168
+        text: Defeat Overdrive Sin
+        note: Overkill, no Aeons, his overdrive gauge is full
+        achievementIds: [279168]
   - id: ch-airship-temples
     title: Airship (temple revisits)
     summary: "Unlocked after the Sin battles on the airship; revisit the old temples."
@@ -1301,6 +1464,7 @@ chapters:
       - id: s-b70deb
         text: Confirm Item Collector II (70)
         note: This should complete Item Collector II.
+        achievementIds: [279402]
   - id: ch-airship-side-quests
     title: Airship (side quests and Omega Ruins)
     summary: Calm Lands, Bikanel, Monster Arena, Remiem and Omega Ruins.
@@ -1312,7 +1476,8 @@ chapters:
       - id: s-45fde6
         text: Complete the 10 Cactuar quest
         location: Bikanel Island
-        note: One cactuar minigame has 3 chests, but those do not count toward Item Collector.
+        note: https://jegged.com/Games/Final-Fantasy-X/Side-Quests/Village-of-the-Cactuars.html One cactuar minigame has 3 chests, but those do not count toward Item Collector.
+        achievementIds: [279335, 279336]
       - id: s-28c111
         text: Friend Sphere
         location: Sanubia Sands
@@ -1321,14 +1486,17 @@ chapters:
         text: Capture one of each Calm Lands species
         location: Monster Arena
         note: Then talk to the Monster Arena tamer.
+        achievementIds: [279375]
       - id: s-173ca2
         text: Capture one of each Mount Gagazet species
         location: Monster Arena
         note: This gives you the Blossom Crown.
+        achievementIds: [279379]
       - id: s-41aba3
-        text: Defeat the Remiem Temple aeons up to Bahamut
+        text: Defeat the Remiem Temple aeons up through Bahamut
         location: Remiem Temple
-        note: This gives you the Flower Sceptre.
+        note: This gives you the Flower Sceptre. No Aeon deaths, no aeon overdrives, no Yojimbo.
+        achievementIds: [279187, 279304, 279327, 279328]
       - id: s-fe20c6
         text: Defense Sphere
         location: Remiem Temple
@@ -1355,11 +1523,43 @@ chapters:
         note: "After defeating Omega, backtrack all the way to his screen; a chest is waiting."
       - id: s-3b4088
         text: Confirm Item Collector IV (52)
-        note: This should complete Item Collector IV.
+        achievementIds: [279404]
+  - id: ch-blitzball-interlude
+    title: Blitzball interlude
+    summary: Get Wakka's overdrives and ultimate weapon
+    steps:
+      - id: s-4zpdvk
+        text: Get Attack Reels
+        note: Win a Blitzball tournament. Reset until the prize is Attack Reels.
+        achievementIds: [279310]
+      - id: s-279311
+        text: Get Status Reels
+        note: Win a Blitzball League. Reset until the prize is Status Reels. Requires already having obtained Attack Reels.
+        achievementIds: [279311]
+      - id: s-279312
+        text: Get Aurochs Reels
+        note: Win a Blitzball tournament. Reset until the prize is Aurochs Reels. Requires already having obtained Status Reels.
+        achievementIds: [279312]
+  - id: ch-grinding-time
+    title: Grinding time
+    summary: Grind stats to be able to defeat Dark Aeons without Yojimbo
+    steps:
+      - id: s-agjotr
+        text: TODO GRIND STEP 1
   - id: ch-dark-aeon-cloisters
     title: Besaid and Macalania Cloisters (Dark Aeons)
     summary: Requires a much stronger party for Dark Valefor and Dark Shiva. Yojimbo is allowed only if you already unlocked the Dark Aeon achievements.
     steps:
+      - id: s-279395
+        text: Defeat Dark Valefor
+        location: Besaid - Village
+        note: No Yojimbo. https://www.youtube.com/watch?v=32oRd17xkdg or FFXED can apparently fix the glitch that prevents this from loading.
+        achievementIds: [279395]
+      - id: s-f8yj10
+        text: Jecht Sphere Besaid
+        location: Besaid - Village
+        note: To the right of the temple
+        achievementIds: [279309]
       - id: s-e3ba5c
         text: Evasion Sphere
         location: Besaid Cloister of Trials
@@ -1380,6 +1580,11 @@ chapters:
         text: Hi-Potion
         location: Besaid Cloister of Trials
         note: Same visit.
+      - id: s-279391
+        text: Defeat Dark Shiva
+        location: Macalania Temple
+        note: No Yojimbo
+        achievementIds: [279391]
       - id: s-03417d
         text: Magic Sphere
         location: Macalania Cloister of Trials
@@ -1395,6 +1600,62 @@ chapters:
       - id: s-367cb4
         text: Confirm Item Collector III (70)
         note: This should complete Item Collector III.
+        achievementIds: [279403]
+  - id: ch-hard-bosses
+    title: Other hard bosses
+    summary: The remaining optional hard bosses. No Yojimbo allowed.
+    steps:
+      - id: s-279329
+        text: Defeat Belgemine's Yojimbo
+        location: Remiem Temple
+        note: No Aeon deaths, no BAYM
+        achievementIds: [279276, 279329]
+      - id: s-279331
+        text: Defeat Belgemine's Anima
+        location: Remiem Temple
+        note: No Aeon deaths, no BAYM
+        achievementIds: [279330, 279331]
+      - id: s-279333
+        text: Defeat Belgemine's Magus Sisters
+        location: Remiem Temple
+        note: No Aeon deaths, no BAYM
+        achievementIds: [279332, 279333]
+      - id: s-279356
+        text: Defeat Ultima Weapon
+        achievementIds: [279356]
+      - id: s-279357
+        text: Defeat Omega Weapon
+        achievementIds: [279357]
+      - id: s-279388
+        text: Defeat Ultima Buster
+        achievementIds: [279388]
+      - id: s-279389
+        text: Defeat Shenlong
+        achievementIds: [279389]
+      - id: s-279390
+        text: Defeat Nemesis
+        achievementIds: [279390]
+      - id: s-279392
+        text: Defeat Dark Ifrit
+        achievementIds: [279392]
+      - id: s-279393
+        text: Defeat Dark Ixion
+        achievementIds: [279393, 279394]
+      - id: s-279396
+        text: Defeat Dark Bahamut
+        achievementIds: [279396]
+      - id: s-279397
+        text: Defeat Dark Yojimbo
+        achievementIds: [279397]
+      - id: s-279398
+        text: Defeat Dark Anima
+        achievementIds: [279398]
+      - id: s-279399
+        text: Defeat Dark Magus Sisters
+        achievementIds: [279399]
+      - id: s-279400
+        text: Defeat Penance
+        achievementIds: [279400]
   - id: ch-sin
     title: Sin
     summary: The final dungeon. Finish all earlier chapters first.
@@ -1419,6 +1680,11 @@ chapters:
         text: Wizard Lance
         location: Sin - Sea of Sorrow
         note: "Follow the video guide: https://www.youtube.com/watch?v=hUZeN99gMik"
+      - id: s-279170
+        text: Defeat Seymour Omnis
+        location: Sin - Sea of Sorrow
+        note: Only damage with counters.
+        achievementIds: [279170]
       - id: s-0ff009
         text: Lv 4 Key Sphere
         location: Sin - City of Dying Dreams
@@ -1454,7 +1720,17 @@ chapters:
       - id: s-bb44b2
         text: Collect the 10 treasures in the ice sequence
         location: Sin
-        note: These come before facing Braska's Final Aeon and cannot be missed.
+        note: These come before facing Braska's Final Aeon and cannot be missed. Don't get hit by the ice spikes.
+        achievementIds: [279171]
       - id: s-f9e4b7
         text: Confirm Item Collector I (73)
         note: This should complete Item Collector I.
+        achievementIds: [279401]
+      - id: s-279173
+        text: Defeat Braska's final Aeon
+        note: No talk, no zombie, no bio, no Aeons
+        achievementIds: [279173]
+      - id: s-279175
+        text: Defeat Yu Yevon
+        note: He must kill himself, you get 1 attack, no deaths, no bio, no Aeons.
+        achievementIds: [279175]
