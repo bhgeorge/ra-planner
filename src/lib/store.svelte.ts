@@ -70,11 +70,6 @@ class AppStore {
     this.commit(resetGame(this.state, slug, now));
   }
 
-  /** Replace local state with an already-merged remote state (no upload loop). */
-  applyRemote(next: AppState): void {
-    this.commit(next, false);
-  }
-
   /** Manual import: merge, never overwrite. */
   importState(imported: AppState): void {
     this.commit(merge(this.state, imported));

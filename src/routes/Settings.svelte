@@ -1,60 +1,26 @@
 <script lang="ts">
   import { onMount } from 'svelte';
   import PageHeader from '$components/PageHeader.svelte';
+  import { shareBackup } from '$lib/backup';
   import { checklists, checklistVersions } from '$lib/checklists';
   import { raStore } from '$lib/ra/store.svelte';
   import { maskApiKey } from '$lib/ra/api';
   import { AppStateSchema } from '$lib/schema';
-  import { loadSyncMeta, PERSIST_REQUESTED_KEY } from '$lib/state';
+  import { PERSIST_REQUESTED_KEY } from '$lib/state';
   import { appStore } from '$lib/store.svelte';
-  import {
-    getEmail,
-    hasClientId,
-    signIn,
-    signOut,
-    wasSignedIn,
-  } from '$lib/sync/auth';
-  import { syncManager } from '$lib/sync/manager.svelte';
   import { toasts } from '$lib/toast.svelte';
   import { loadTextToggles, saveTextToggles } from '$lib/prefs';
 
   let username = $state('');
   let apiKey = $state('');
   let editingKey = $state(false);
-  let signedIn = $state(false);
-  let email = $state<string | null>(null);
   let textToggles = $state(true);
   let raTestMessage = $state('');
   let raTestError = $state(false);
-  let driveFileId = $state<string | null>(null);
   let persistentStorage = $state(false);
   let importInput = $state<HTMLInputElement | null>(null);
 
-  const googleConfigured = hasClientId();
   const testTarget = $derived(checklists.find((checklist) => checklist.raGameId));
-
-  const syncStatusText = $derived.by(() => {
-    switch (syncManager.status) {
-      case 'syncing':
-        return 'Syncing…';
-      case 'synced':
-        return 'Synced';
-      case 'offline':
-        return 'Offline — changes will sync when you reconnect.';
-      case 'signed-out':
-        return signedIn ? 'Session expired — sign in again.' : 'Not signed in.';
-      case 'error':
-        return 'Last sync failed.';
-      default:
-        return signedIn ? 'Ready to sync.' : 'Not signed in.';
-    }
-  });
-
-  const lastSyncedText = $derived(
-    syncManager.lastSyncedAt
-      ? new Date(syncManager.lastSyncedAt).toLocaleString()
-      : 'Never',
-  );
 
   onMount(() => {
     const credentials = raStore.credentials;
@@ -62,10 +28,7 @@
       username = credentials.username;
       apiKey = credentials.apiKey;
     }
-    signedIn = wasSignedIn();
-    email = getEmail();
     textToggles = loadTextToggles();
-    driveFileId = loadSyncMeta().fileId;
     try {
       persistentStorage = localStorage.getItem(PERSIST_REQUESTED_KEY) === '1';
     } catch {
@@ -73,58 +36,8 @@
     }
   });
 
-  function refreshAuthState(): void {
-    signedIn = wasSignedIn();
-    email = getEmail();
-    driveFileId = loadSyncMeta().fileId;
-  }
-
   function errorMessage(error: unknown): string {
     return error instanceof Error ? error.message : String(error);
-  }
-
-  async function handleSignIn(): Promise<void> {
-    try {
-      await signIn();
-      refreshAuthState();
-      syncManager.markSignedIn();
-      toasts.show({ message: 'Signed in to Google.', kind: 'success' });
-      await syncManager.syncNow('manual', { interactive: true });
-      refreshAuthState();
-      if (syncManager.error) {
-        toasts.show({ message: syncManager.error, kind: 'error', duration: 8000 });
-      }
-    } catch (error) {
-      toasts.show({ message: errorMessage(error), kind: 'error', duration: 8000 });
-    }
-  }
-
-  function handleSignOut(): void {
-    signOut();
-    signedIn = false;
-    email = null;
-    driveFileId = null;
-    syncManager.markSignedOut();
-    toasts.show({ message: 'Signed out of Google.', kind: 'info' });
-  }
-
-  async function handleSyncNow(): Promise<void> {
-    try {
-      if (!signedIn) {
-        await signIn();
-        refreshAuthState();
-        syncManager.markSignedIn();
-      }
-      const ok = await syncManager.syncNow('manual', { interactive: true });
-      refreshAuthState();
-      if (ok) {
-        toasts.show({ message: 'Sync complete.', kind: 'success', duration: 3000 });
-      } else if (syncManager.error) {
-        toasts.show({ message: syncManager.error, kind: 'error', duration: 8000 });
-      }
-    } catch (error) {
-      toasts.show({ message: errorMessage(error), kind: 'error', duration: 8000 });
-    }
   }
 
   function persistRa(showToast = true): boolean {
@@ -195,22 +108,20 @@
     saveTextToggles(value);
   }
 
-  function exportState(): void {
+  async function shareStateBackup(): Promise<void> {
     try {
-      const blob = new Blob([JSON.stringify(appStore.state, null, 2)], {
-        type: 'application/json',
-      });
-      const url = URL.createObjectURL(blob);
-      const anchor = document.createElement('a');
-      anchor.href = url;
-      anchor.download = `ra-planner-backup-${new Date().toISOString().slice(0, 10)}.json`;
-      document.body.appendChild(anchor);
-      anchor.click();
-      anchor.remove();
-      setTimeout(() => URL.revokeObjectURL(url), 1000);
-      toasts.show({ message: 'State exported.', kind: 'success', duration: 3000 });
+      const result = await shareBackup(appStore.state);
+      if (result === 'shared') {
+        toasts.show({ message: 'Backup shared.', kind: 'success', duration: 3000 });
+      } else if (result === 'downloaded') {
+        toasts.show({
+          message: 'Backup downloaded. Sharing files is not available in this browser.',
+          kind: 'success',
+          duration: 5000,
+        });
+      }
     } catch {
-      toasts.show({ message: 'Could not export state.', kind: 'error' });
+      toasts.show({ message: 'Could not prepare a backup.', kind: 'error' });
     }
   }
 
@@ -260,85 +171,15 @@
 </svelte:head>
 
 <div class="page settings-page">
-  <PageHeader title="Settings" subtitle="Sync, achievements, and data" back />
-
-  <section class="settings-section" aria-labelledby="sync-heading">
-    <div class="section-heading">
-      <h2 id="sync-heading">Google Drive sync</h2>
-      <span class="status-pill status-{syncManager.status}">{syncStatusText}</span>
-    </div>
-
-    {#if !googleConfigured}
-      <p class="callout callout-warning">
-        Google sync is not configured in this build. Set
-        <code>VITE_GOOGLE_CLIENT_ID</code> before building. The app still works locally.
-      </p>
-    {/if}
-
-    {#if signedIn}
-      <p class="settings-line">
-        Signed in as <strong>{email ?? 'Google account'}</strong>
-      </p>
-      <div class="button-row">
-        <button
-          type="button"
-          class="secondary-button"
-          onclick={handleSyncNow}
-          disabled={syncManager.status === 'syncing'}
-        >
-          {syncManager.status === 'syncing' ? 'Syncing…' : 'Sync now'}
-        </button>
-        <button type="button" class="secondary-button" onclick={handleSignOut}>
-          Sign out
-        </button>
-      </div>
-    {:else}
-      <p class="settings-line">
-        State syncs through a single hidden file in your Google Drive app data folder.
-      </p>
-      <div class="button-row">
-        <button
-          type="button"
-          class="primary-button"
-          onclick={handleSignIn}
-          disabled={!googleConfigured}
-        >
-          Sign in with Google
-        </button>
-        <button
-          type="button"
-          class="secondary-button"
-          onclick={handleSyncNow}
-          disabled={!googleConfigured || syncManager.status === 'syncing'}
-        >
-          Sync now
-        </button>
-      </div>
-    {/if}
-
-    <dl class="facts">
-      <div><dt>Last synced</dt><dd>{lastSyncedText}</dd></div>
-      <div><dt>Status</dt><dd>{syncStatusText}</dd></div>
-      {#if driveFileId}
-        <div><dt>Drive file ID</dt><dd class="mono">{driveFileId}</dd></div>
-      {/if}
-    </dl>
-
-    {#if syncManager.error}
-      <details class="error-details">
-        <summary>Error details</summary>
-        <pre>{syncManager.error}</pre>
-      </details>
-    {/if}
-  </section>
+  <PageHeader title="Settings" subtitle="Achievements and data" back />
 
   <section class="settings-section" aria-labelledby="ra-heading">
     <div class="section-heading">
       <h2 id="ra-heading">RetroAchievements</h2>
     </div>
     <p class="settings-note">
-      Credentials are stored on this device only. They are never sent to Drive, never logged,
-      and never included in state exports.
+      Credentials are stored on this device only. They are never uploaded, never logged,
+      and never included in backups.
     </p>
 
     <label class="field">
@@ -411,15 +252,16 @@
       <h2 id="data-heading">Data</h2>
     </div>
     <p class="settings-note">
-      Back up check state manually, or merge an export from another device. Import merges,
-      so it never erases newer checks.
+      On Android, <strong>Share backup</strong> opens the system share sheet so you can send
+      the JSON file to Drive or any other app. Import merges a backup, so it never erases
+      newer checks.
     </p>
     <div class="button-row">
-      <button type="button" class="secondary-button" onclick={exportState}>
-        Export state (JSON)
+      <button type="button" class="secondary-button" onclick={shareStateBackup}>
+        Share backup (JSON)
       </button>
       <button type="button" class="secondary-button" onclick={openImport}>
-        Import state (JSON)
+        Import backup (JSON)
       </button>
       <input
         class="visually-hidden"

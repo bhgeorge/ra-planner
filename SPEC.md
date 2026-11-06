@@ -1,6 +1,6 @@
 # RA Planner — Product & Technical Spec
 
-A personal, phone-first web app (PWA) for tracking order-dependent checklists while playing games on retroachievements.org. Following the checklist in order should guarantee the player never misses a missable achievement. Check state syncs between devices through Google Drive.
+A personal, phone-first web app (PWA) for tracking order-dependent checklists while playing games on retroachievements.org. Following the checklist in order should guarantee the player never misses a missable achievement. Check state is stored on the device, with manual JSON backups shared through the system share sheet.
 
 This document is written to be executed by an implementation agent. Where something is unverified it is marked **VERIFY** and has a corresponding spike task in Milestone 0.
 
@@ -10,15 +10,15 @@ This document is written to be executed by an implementation agent. Where someth
 
 ### Goals
 1. Show one checklist per game: ordered **chapters**, each containing ordered **steps** the player checks off.
-2. Persist check state locally (works fully offline) and sync it between the user's phone (Pixel 8, Chrome) and desktop via Google Drive.
-3. Allow un-checking at any time (mistakes, going back). Sync must handle un-checks correctly.
+2. Persist check state locally (works fully offline) and provide a manual JSON backup that can be shared to Google Drive or another app from Android's share sheet.
+3. Allow un-checking at any time (mistakes, going back). Imports must merge un-checks correctly.
 4. Optionally link a step to one or more RetroAchievements achievements and display each achievement's name, icon, and the user's earned status via the RA Web API.
 5. Checklists are plain files in the repo, generated and edited by an AI agent or by hand. The app never parses third-party guides.
 
 ### Non-goals (v1)
 - In-app editing of checklists (edit source files; may be added later if it becomes painful).
 - Multiple playthroughs per game or run history. One live checklist per game, with a Reset action.
-- Multi-user features, accounts other than the owner's Google account, public sharing.
+- Accounts, cloud sync, multi-user features, or public sharing.
 - Auto-checking steps from RA unlock data (RA status is displayed only).
 - A native app. This is a PWA.
 
@@ -37,7 +37,7 @@ The whole point is to remove the need to think about missables. Therefore: chapt
 | Checklist source format | YAML files in `checklists/`, validated and compiled to JSON at build time. |
 | Validation | `zod` schema shared by the build script and the app. |
 | Local persistence | `localStorage` (data is tiny). Call `navigator.storage.persist()` on first run. |
-| Sync | Google Identity Services (token model) + Drive REST v3, scope `drive.appdata`. No backend. |
+| Backup | Manual JSON file via the Web Share API (Android share sheet), with a download fallback. No backend. |
 | RA data | Direct `fetch` to the RA Web API (no SDK dependency). |
 | Tests | Vitest (unit); Playwright smoke test optional. |
 | Hosting | GitHub Pages via GitHub Actions. |
@@ -63,10 +63,8 @@ Keep dependencies minimal: `svelte`, `vite`, `vite-plugin-pwa`, `zod`, `js-yaml`
 │  ├─ lib/
 │  │  ├─ schema.ts              # zod schemas + TS types (checklist + state)
 │  │  ├─ state.ts               # state store, merge function, persistence
+│  │  ├─ backup.ts              # Web Share backup with download fallback
 │  │  ├─ progress.ts            # current chapter / next step / counts
-│  │  ├─ sync/
-│  │  │  ├─ auth.ts             # GIS token handling
-│  │  │  └─ drive.ts            # appDataFolder read/write
 │  │  └─ ra/
 │  │     ├─ api.ts              # RA fetch wrapper
 │  │     └─ cache.ts            # response cache
@@ -160,7 +158,7 @@ type AppState = {
 ### 5.2 Semantics
 - Toggling a step sets `items[id] = { c: !current, t: Date.now() }`.
 - A step is **effectively checked** iff `items[id]?.c === true && items[id].t > resetAt`.
-- **Reset game**: set `resetAt = Date.now()`. (Do not delete items; this keeps merges simple.) Steps then read as unchecked everywhere once synced.
+- **Reset game**: set `resetAt = Date.now()`. (Do not delete items; this keeps merges simple.) Steps then read as unchecked. Steps checked after the reset remain checked.
 - State for IDs not present in the current checklist ("orphans") is kept in storage but ignored by progress calculations and the UI.
 - Clock skew between devices is accepted; this is a single-user tool. Use `Date.now()` but never let a new write's `t` be lower than the existing entry's `t` for the same item on the same device (`t = Math.max(Date.now(), existing.t + 1)`).
 
@@ -172,35 +170,28 @@ type AppState = {
 - Result must be **commutative, associative, and idempotent**. Write property-style tests for all three.
 
 ### 5.4 Local persistence
-Key: `ra-planner:state:v1` in `localStorage`, JSON-serialized `AppState`. Write on every change (debounced 200 ms). Also store `ra-planner:sync-meta` (`lastSyncedAt`, Drive `fileId`).
+Key: `ra-planner:state:v1` in `localStorage`, JSON-serialized `AppState`. Write on every change (debounced 200 ms).
 
 ---
 
-## 6. Google Drive sync
+## 6. Backups and restore
 
-### 6.1 Storage
-A single JSON file named `ra-planner-state.json` in the Drive **`appDataFolder`** (hidden from the user's normal Drive UI, scoped to this app). Contents: the serialized `AppState`.
+### 6.1 Backup file
+A JSON file named `ra-planner-backup-YYYY-MM-DD.json` containing the serialized `AppState`. No credentials or other preferences are included.
 
-### 6.2 Auth
-- Google Identity Services **token model** (`google.accounts.oauth2.initTokenClient`), scope `https://www.googleapis.com/auth/drive.appdata`.
-- Client ID provided via `VITE_GOOGLE_CLIENT_ID` (it is not a secret). Authorized JavaScript origins must include the GitHub Pages origin and `http://localhost:5173`.
-- On app open and when the page becomes visible again, if the user previously signed in (flag in localStorage), attempt a silent token request (`prompt: ''`). If it fails, show a non-blocking "Sign in to sync" button. Never block local use on auth.
-- Access tokens last about an hour and are kept in memory only.
-- **VERIFY** (Milestone 0): how often the phone PWA needs interactive re-auth in practice, and whether the OAuth consent screen must be set to "In production" to avoid periodic re-consent for a personal app. `drive.appdata` is a non-sensitive scope, so verification is not expected to be required.
+### 6.2 Share (export)
+- **Share backup (JSON)** in **Settings → Data** builds the file and calls `navigator.share({ files: [file] })` from the click handler.
+- On Android this opens the system share sheet, where the user can send the file to Google Drive or any other app.
+- If the browser can't share files (`navigator.canShare` is unavailable or rejects files), or the share target rejects the file, download the file with an `<a download>` fallback.
+- A user-cancelled share (`AbortError`) is not an error.
 
-### 6.3 Sync procedure
-Triggered: on app open, on `visibilitychange` to visible (throttled to once per 30 s), after local changes (debounced 3 s), and via a manual "Sync now" button. Skipped when offline or signed out; changes accumulate locally and sync later.
-
-1. Find the file in `appDataFolder` by name (cache `fileId` in sync-meta). If absent, create it with the local state and finish.
-2. Download the remote JSON; validate with zod (on invalid/corrupt, do **not** overwrite; surface an error and keep local state).
-3. `merged = merge(local, remote)`; save `merged` locally.
-4. If `merged` differs from remote, upload it (PATCH media upload to the same file).
-5. Update `lastSyncedAt`. On HTTP 401, drop the token and fall back to the signed-out state. On other errors, retry with backoff (max 3 attempts), then show "Sync failed" in Settings.
-
-There is no server-side locking. Concurrent syncs from two devices are resolved by the next sync's merge; because merge is idempotent and monotonic, no data is lost except last-writer-wins on the same item.
+### 6.3 Import
+- **Import backup (JSON)** reads a user-selected file, validates it with `AppStateSchema`, then applies `merge(local, imported)`.
+- Import never overwrites: newer checks and un-checks win by timestamp, and reset timestamps are preserved by `merge`.
+- Invalid JSON or an unexpected shape is rejected with a toast and local state is left untouched.
 
 ### 6.4 UI surface
-Status chip in the header: Synced (time), Syncing, Offline, Not signed in, Error. Details in Settings.
+The Data section in Settings contains **Share backup (JSON)** and **Import backup (JSON)**. There is no sync status chip or account UI.
 
 ---
 
@@ -219,7 +210,7 @@ For steps with `achievementIds`, show the achievement's icon, title, points, and
 
 ### 7.3 Credentials
 - Settings screen has fields for RA username and Web API key (from the user's RA control panel).
-- Stored in `localStorage` on that device only. **Never** synced to Drive, never committed, never logged. Mask the key in the UI after entry.
+- Stored in `localStorage` on that device only. **Never** included in backups, committed, or logged. Mask the key in the UI after entry.
 - All RA features are hidden/disabled gracefully when credentials are missing or a checklist has no `raGameId`.
 
 ### 7.4 Caching
@@ -252,10 +243,10 @@ General: mobile-first layout, minimum touch target 48 px, readable at arm's leng
 
 ### 9.1 Library (home)
 - List of games from the compiled checklists: title, console, overall progress bar and `done/total`, last opened. Sorted by last opened, then title.
-- Header: sync status chip, Settings button.
+- Header: Settings button.
 
 ### 9.2 Game view
-- Sticky header: game title, overall progress, RA summary (if available), sync chip, refresh-RA button, menu (Reset, Keep screen awake toggle).
+- Sticky header: game title, overall progress, RA summary (if available), refresh-RA button, menu (Reset, Keep screen awake toggle).
 - **"Next up" card** at the top: the `nextStep` text and note, with a one-tap check button. When everything is done, show a completion state.
 - Chapters rendered in order as collapsible sections with per-chapter progress. Default state: the current chapter expanded; completed chapters collapsed; later chapters collapsed. Remember expand/collapse state per game in localStorage.
 - Step row: large checkbox, text, a chevron/button to reveal `note` if present, achievement chips if present. Tapping the checkbox toggles; tapping the text also toggles (configurable; default: checkbox and text both toggle, note button separate).
@@ -265,13 +256,12 @@ General: mobile-first layout, minimum touch target 48 px, readable at arm's leng
 - "Keep screen awake" toggle using the Screen Wake Lock API (re-acquire on visibility change).
 
 ### 9.3 Settings
-- Google: sign in/out, account email, "Sync now", last synced time, error details.
 - RetroAchievements: username, Web API key, "Test connection".
-- Data: "Export state (JSON)" and "Import state (JSON)" as a manual backup (import merges via `merge`, not overwrite).
+- Data: "Share backup (JSON)" opens the system share sheet (download fallback), and "Import backup (JSON)" merges via `merge`, not overwrite.
 - About: app version, checklist versions.
 
 ### 9.4 Reset
-Per-game "Reset checklist" with a confirm dialog that states it will uncheck all steps on all synced devices. Implemented as `resetAt = Date.now()`.
+Per-game "Reset checklist" with a confirm dialog that states it will uncheck all steps. Implemented as `resetAt = Date.now()`.
 
 ### 9.5 Rendering rules
 - `text` and `note` are plain text; render with auto-linked URLs, preserve line breaks, escape everything else (no HTML injection).
@@ -293,7 +283,7 @@ Per-game "Reset checklist" with a confirm dialog that states it will uncheck all
 - `pnpm validate` — schema validation only (used in CI and by the authoring agent).
 - `pnpm test` — Vitest.
 - GitHub Actions (`deploy.yml`): on push to `main`, run `pnpm install --frozen-lockfile`, `pnpm test`, `pnpm build`, deploy `dist/` to GitHub Pages. Set Vite `base` to the repo path (configurable via env).
-- Environment: `VITE_GOOGLE_CLIENT_ID` (required for sync), `VITE_RA_PROXY_URL` (optional). Document setup of the Google Cloud project and OAuth client in `README.md` (create project, enable Drive API, create Web OAuth client ID, add authorized JS origins, publish consent screen).
+- Environment: `VITE_RA_PROXY_URL` (optional) and `VITE_BASE_PATH` (optional). Document backup/restore behavior in `README.md`.
 
 ---
 
@@ -319,10 +309,10 @@ A standalone instruction document that a user can paste to an AI agent along wit
 
 ### Manual acceptance (on Pixel 8 Chrome + desktop browser)
 1. Install the PWA to the home screen; open with airplane mode on; checklists load and checking works.
-2. Check items offline, go online, open the app; state appears on the desktop after "sync on open".
-3. Uncheck an item on the phone; open the desktop; the item is unchecked there.
-4. Check on both devices while offline, then sync both; the result contains both devices' changes.
-5. Reset a game on one device; after sync the other device shows it reset; steps checked afterwards on either device remain checked.
+2. Check a few items, open **Settings → Data → Share backup**, choose Drive in the Android share sheet, and confirm the JSON file is saved.
+3. Clear site data (or use a fresh install), then import that backup; confirm the checks are restored.
+4. Import a backup that is older than current local state; confirm newer local checks and un-checks are preserved.
+5. Reset a game; confirm every step unchecks and steps checked afterwards remain checked. A backup taken before the reset must not undo the reset when imported.
 6. A step with `achievementIds` shows icon/title/earned state when RA credentials are configured, and degrades gracefully without them, offline, or on API errors.
 7. Re-deploying with a reworded step (same ID) keeps its check state; removing a step doesn't break the app.
 8. Checking a step in a later chapter shows the out-of-order warning but still works; Undo works.
@@ -332,26 +322,24 @@ A standalone instruction document that a user can paste to an AI agent along wit
 ## 14. Milestones
 
 **M0 — Spikes (do first; each produces a short note in `docs/spikes.md`)**
-- Google sign-in + `appDataFolder` read/write from a static page on GitHub Pages, tested in installed-PWA mode on a Pixel 8; record silent re-auth behavior and consent-screen requirements.
 - RA `GetGameInfoAndUserProgress` call from a browser: confirm field names, badge URL pattern, CORS. If blocked, scope the proxy.
 
 **M1 — Core local app**: scaffold (Vite + Svelte 5 + TS), schema, checklist build script + validator, example checklist, state store + merge + progress with tests, Library and Game views, toggle/undo/out-of-order warning, reset.
 
 **M2 — PWA**: manifest, icons, service worker, offline, update prompt, wake lock, deploy workflow to GitHub Pages.
 
-**M3 — Drive sync**: auth, sync procedure, status chip, Settings sync section, export/import backup.
+**M3 — Backups**: Web Share backup with download fallback, import/merge, Settings Data section.
 
 **M4 — RA integration**: credentials in Settings, API wrapper + cache, achievement chips and bottom sheet, game-level RA summary, graceful degradation (+ proxy if M0 requires it).
 
-**M5 — Polish**: `docs/CHECKLIST_AUTHORING.md`, README (including Google Cloud setup), accessibility pass (labels, contrast, focus), run the full manual acceptance list.
+**M5 — Polish**: `docs/CHECKLIST_AUTHORING.md`, README (including backup/restore behavior), accessibility pass (labels, contrast, focus), run the full manual acceptance list.
 
 ---
 
 ## 15. Open risks
-- Google token lifetime/re-auth friction on the phone (M0 spike).
 - RA API CORS restrictions (M0 spike; proxy fallback defined).
 - AI-regenerated checklists silently changing IDs and orphaning progress (mitigated by §4.2 rules and `validate --against`).
-- Clock skew between devices affecting last-writer-wins (accepted for a single-user tool).
+- Clock skew between devices affecting last-writer-wins when a backup is imported from elsewhere (accepted for a single-user tool).
 
 ## 16. Possible future work (out of scope now)
-In-app editing UI; auto-suggest "check this step" when the linked RA achievement is earned; multiple playthroughs; per-step search; importing checklists from Drive.
+In-app editing UI; auto-suggest "check this step" when the linked RA achievement is earned; multiple playthroughs; per-step search; importing checklists from a shared file.

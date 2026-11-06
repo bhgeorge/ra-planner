@@ -1,7 +1,6 @@
 <script lang="ts">
   import PageHeader from '$components/PageHeader.svelte';
   import ProgressBar from '$components/ProgressBar.svelte';
-  import SyncChip from '$components/SyncChip.svelte';
   import { checklists } from '$lib/checklists';
   import { computeProgress } from '$lib/progress';
   import { appStore } from '$lib/store.svelte';
@@ -46,7 +45,6 @@
 <div class="page library-page">
   <PageHeader title="RA Planner" subtitle="Order-dependent checklists">
     {#snippet children()}
-      <SyncChip />
       <a class="icon-button" href="#/settings" aria-label="Settings">
         <span aria-hidden="true">⚙</span>
       </a>

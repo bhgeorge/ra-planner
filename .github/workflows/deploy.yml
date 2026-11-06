@@ -40,7 +40,6 @@ jobs:
         run: pnpm build
         env:
           VITE_BASE_PATH: ${{ vars.VITE_BASE_PATH || format('/{0}/', github.event.repository.name) }}
-          VITE_GOOGLE_CLIENT_ID: ${{ vars.VITE_GOOGLE_CLIENT_ID }}
           VITE_RA_PROXY_URL: ${{ vars.VITE_RA_PROXY_URL }}
 
       - name: Configure Pages

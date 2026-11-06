@@ -111,7 +111,7 @@ export default defineConfig({
         name: 'RA Planner',
         short_name: 'RA Planner',
         description:
-          'Order-dependent checklists for RetroAchievements, with offline support and cross-device sync.',
+          'Order-dependent checklists for RetroAchievements, with offline support.',
         start_url: '.',
         scope: '.',
         display: 'standalone',

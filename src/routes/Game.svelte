@@ -6,7 +6,6 @@
   import PageHeader from '$components/PageHeader.svelte';
   import PlainText from '$components/PlainText.svelte';
   import ProgressBar from '$components/ProgressBar.svelte';
-  import SyncChip from '$components/SyncChip.svelte';
   import { getChecklist } from '$lib/checklists';
   import {
     loadExpandedChapters,
@@ -211,7 +210,7 @@
     appStore.reset(slug);
     toasts.show({
       message:
-        'Checklist reset. Syncing will uncheck these steps on your other devices too.',
+        'Checklist reset. Every step is unchecked; steps you check again will stay checked.',
       kind: 'success',
       duration: 7000,
     });
@@ -261,8 +260,6 @@
             {progress.overall.done}/{progress.overall.total} steps
           </p>
         </div>
-
-        <SyncChip />
 
         <details class="game-menu" bind:this={menuEl}>
           <summary class="icon-button" aria-label="Game menu">
@@ -401,7 +398,7 @@
   {#if showReset}
     <ConfirmDialog
       title="Reset checklist?"
-      message="This unchecks every step in this game. After syncing, the reset applies to all of your devices. Steps you check again afterwards will stay checked."
+      message="This unchecks every step in this game. Steps you check again afterwards will stay checked."
       confirmLabel="Reset checklist"
       danger
       onConfirm={confirmReset}

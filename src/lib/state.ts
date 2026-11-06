@@ -1,14 +1,11 @@
 import {
   AppStateSchema,
-  SyncMetaSchema,
   type AppState,
   type GameState,
   type ItemState,
-  type SyncMeta,
 } from './schema';
 
 export const STATE_STORAGE_KEY = 'ra-planner:state:v1';
-export const SYNC_META_STORAGE_KEY = 'ra-planner:sync-meta';
 export const PERSIST_REQUESTED_KEY = 'ra-planner:persist-requested';
 
 export function emptyGameState(): GameState {
@@ -146,7 +143,7 @@ function canonical(value: unknown): string {
   return JSON.stringify(value);
 }
 
-/** Order-independent deep equality, used to decide whether an upload is needed. */
+/** Order-independent deep equality. */
 export function statesEqual(a: AppState, b: AppState): boolean {
   return canonical(a) === canonical(b);
 }
@@ -180,34 +177,7 @@ export function saveState(
     storage.setItem(STATE_STORAGE_KEY, JSON.stringify(state));
   } catch {
     // Storage can be full or unavailable (private mode). The app still works
-    // in memory; the user sees the failure through sync/backup options.
-  }
-}
-
-export function loadSyncMeta(
-  storage: Storage | null = getLocalStorage(),
-): SyncMeta {
-  const fallback: SyncMeta = { lastSyncedAt: null, fileId: null };
-  if (!storage) return fallback;
-  try {
-    const raw = storage.getItem(SYNC_META_STORAGE_KEY);
-    if (!raw) return fallback;
-    const parsed = SyncMetaSchema.safeParse(JSON.parse(raw));
-    return parsed.success ? parsed.data : fallback;
-  } catch {
-    return fallback;
-  }
-}
-
-export function saveSyncMeta(
-  meta: SyncMeta,
-  storage: Storage | null = getLocalStorage(),
-): void {
-  if (!storage) return;
-  try {
-    storage.setItem(SYNC_META_STORAGE_KEY, JSON.stringify(meta));
-  } catch {
-    // Non-fatal: sync will re-discover the file next time.
+    // in memory; the user sees the failure through backup options.
   }
 }
 

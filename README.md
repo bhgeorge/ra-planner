@@ -3,7 +3,7 @@
 A phone-first, offline-capable PWA for working through **order-dependent checklists** while playing games on [RetroAchievements](https://retroachievements.org). Following the checklist in order should mean never missing a missable achievement.
 
 - One checklist per game, divided into ordered chapters and steps.
-- Check state lives in `localStorage`, works fully offline, and syncs between devices through a hidden Google Drive `appDataFolder` file.
+- Check state lives in `localStorage` and works fully offline. Back up manually by sharing a JSON file from Settings (for example to Google Drive).
 - Optional RetroAchievements integration shows achievement icons, titles, points, and earned status. It is informational only and never checks steps automatically.
 - Checklists are YAML files in `checklists/`, compiled at build time. The app never parses third-party guides.
 
@@ -16,7 +16,7 @@ pnpm install
 pnpm dev
 ```
 
-Open <http://localhost:5173>. The example checklist is at `checklists/example-game.yaml`.
+Open <http://localhost:5173>. The checklists in `checklists/` appear in the library.
 
 ### Scripts
 
@@ -43,46 +43,22 @@ pnpm validate -- --against HEAD   # when regenerating an existing file
 
 The build fails on schema errors and prints the file, path, and message. Duplicate achievement IDs across steps are warnings, not errors.
 
-## Google Drive sync setup
+## Backups
 
-Sync is optional. Without configuration the app works entirely locally.
+Check state lives on the device in `localStorage`. There is no account and no automatic sync.
 
-1. Create a project in [Google Cloud Console](https://console.cloud.google.com/).
-2. Enable **Google Drive API** for the project.
-3. Configure the **OAuth consent screen**:
-   - User type: External is fine for a personal app.
-   - Add the scope `https://www.googleapis.com/auth/drive.appdata`. The app also requests `openid` and `email` so Settings can show the signed-in account.
-   - Publish the app to **In production** when you are ready. `drive.appdata`, `openid`, and `email` are non-sensitive scopes, so verification is not normally required. Keeping the app in "Testing" works too, but test-mode consent and refresh tokens have shorter lifetimes and may cause more frequent re-consent.
-4. Create credentials → **OAuth client ID** → **Web application**.
-5. Add **Authorized JavaScript origins**:
-   - `http://localhost:5173`
-   - `https://<your-github-username>.github.io` (origin only — no repository path)
-   - Any custom domain you deploy to.
-6. Put the client ID in `.env.local`:
+- **Share backup (JSON)** in **Settings → Data** opens the Android share sheet with a `ra-planner-backup-YYYY-MM-DD.json` file. Pick Drive (or any other app) to store it. On browsers that cannot share files, the same button downloads the file instead.
+- **Import backup (JSON)** merges an existing backup into the current state. Merge is commutative, associative, and idempotent, so importing never erases newer checks.
+- Backups contain checklist progress only. RetroAchievements credentials are never included.
 
-   ```bash
-   VITE_GOOGLE_CLIENT_ID=1234567890-abc.apps.googleusercontent.com
-   ```
-
-   Restart `pnpm dev` after changing environment variables.
-
-The client ID is not a secret. Access tokens are kept in memory only. The app stores a "previously signed in" flag and email address locally so it can try a silent token request on open; if that fails it falls back to a "Sign in" state without blocking local use.
-
-The sync file is named `ra-planner-state.json` and lives in the app's hidden `appDataFolder`. It is not visible in the normal Drive UI. The app merges local and remote state on every sync; merge is commutative, associative, and idempotent, so offline edits on two devices are preserved except for the same item edited on both, where the newest timestamp wins.
-
-### Sync behavior
-
-- Sync attempts run on open, when the page becomes visible again (throttled to 30 s), 3 s after local changes, and from **Sync now**.
-- Sync is skipped when offline or signed out; changes accumulate locally.
-- On HTTP 401 the token is dropped and the app asks you to sign in again.
-- Corrupt or unexpected remote JSON is never overwritten; the error appears in Settings and local state is kept.
+Sharing a new backup to Drive does not update the app automatically. To restore, download the file and use **Import backup**.
 
 ## RetroAchievements setup
 
 1. Find your Web API key in your [RA control panel](https://retroachievements.org/controlpanel.php).
 2. In **Settings → RetroAchievements**, enter your username and key, then **Save credentials** and **Test connection**.
 
-Credentials are stored on that device only. They are never written to Drive, exported, committed, or logged. The key is masked after entry.
+Credentials are stored on that device only. They are never uploaded, included in backups, committed, or logged. The key is masked after entry.
 
 Add `raGameId` to a checklist to enable RA data for it. The app calls:
 
@@ -155,7 +131,6 @@ Add repository **variables** (Settings → Secrets and variables → Actions →
 
 | Variable | Required | Purpose |
 |---|---|---|
-| `VITE_GOOGLE_CLIENT_ID` | For sync | OAuth Web client ID. |
 | `VITE_RA_PROXY_URL` | No | CORS proxy base URL. |
 | `VITE_BASE_PATH` | No | Override the repository path; include leading/trailing slashes. |
 
@@ -178,9 +153,9 @@ type GameState = { items: Record<string, ItemState>; resetAt: number; lastOpened
 type AppState = { schema: 1; games: Record<string, GameState> };
 ```
 
-A step is effectively checked only when `c === true` and `t > resetAt`. **Reset checklist** sets `resetAt` to now instead of deleting history, so the reset merges correctly and unchecks steps on all synced devices. Steps checked after the reset remain checked.
+A step is effectively checked only when `c === true` and `t > resetAt`. **Reset checklist** sets `resetAt` to now instead of deleting history, so the reset merges correctly. Steps checked after the reset remain checked.
 
-**Export state** and **Import state** in Settings provide a manual backup. Import merges, never overwrites.
+**Share backup** and **Import backup** in Settings provide manual backup and restore. Import merges, never overwrites.
 
 ## Repository layout
 
@@ -188,7 +163,7 @@ A step is effectively checked only when `c === true` and `t > resetAt`. **Reset 
 checklists/                 YAML source of truth
 docs/                       authoring guide and M0 spike notes
 scripts/                    checklist compiler and validator
-src/lib/                    schema, state, progress, sync, RA, router
+src/lib/                    schema, state, backup, progress, RA, router
 src/routes/                 Library, Game, Settings
 src/components/             shared UI
 src/generated/              compiled checklists (gitignored)
@@ -198,7 +173,7 @@ tests/                      Vitest unit tests
 
 ## Privacy
 
-- Checklist state syncs only to your own Google Drive app data folder.
-- RA credentials stay in this browser's `localStorage`.
-- The app has no backend other than Google Drive and the optional RA proxy you host.
+- Checklist state stays on this device unless you share a backup.
+- RA credentials stay in this browser's `localStorage` and are never included in backups.
+- The app has no backend. RA requests go directly to retroachievements.org or through the optional proxy you host.
 - If you add a CORS proxy, do not log request URLs: they contain the RA Web API key.

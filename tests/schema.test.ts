@@ -9,7 +9,7 @@ import {
 
 function exampleSource(): string {
   return readFileSync(
-    new URL('../checklists/example-game.yaml', import.meta.url),
+    new URL('./fixtures/example-game.yaml', import.meta.url),
     'utf8',
   );
 }

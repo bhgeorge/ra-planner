@@ -114,13 +114,6 @@ export const AppStateSchema = z
   })
   .strict();
 
-export const SyncMetaSchema = z
-  .object({
-    lastSyncedAt: z.number().int().nonnegative().nullable().default(null),
-    fileId: z.string().min(1).nullable().default(null),
-  })
-  .strict();
-
 export type Source = z.infer<typeof SourceSchema>;
 export type Step = z.infer<typeof StepSchema>;
 export type Chapter = z.infer<typeof ChapterSchema>;
@@ -129,7 +122,6 @@ export type Checklist = z.infer<typeof ChecklistSchema>;
 export type ItemState = z.infer<typeof ItemStateSchema>;
 export type GameState = z.infer<typeof GameStateSchema>;
 export type AppState = z.infer<typeof AppStateSchema>;
-export type SyncMeta = z.infer<typeof SyncMetaSchema>;
 
 export function parseChecklist(input: unknown): Checklist {
   return ChecklistSchema.parse(input);
