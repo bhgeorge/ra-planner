@@ -1545,7 +1545,17 @@ chapters:
     summary: Grind stats to be able to defeat Dark Aeons without Yojimbo
     steps:
       - id: s-agjotr
-        text: TODO GRIND STEP 1
+        text: Capture 10 of each monster
+        achievementIds: [279360, 279362, 279364, 279366, 279368, 279370, 279372, 279374, 279376, 279378, 279380]
+      - id: s-sqynpl
+        text: Farm Triple AP, Triple Overdrive, Overdrive -> AP
+        note: Fight One Eye, Ultima Buster, and Bomb King
+      - id: s-m6op1j
+        text: Don Tonberry sphere levels
+        note: Set the attacker to Stoic Overdrive mode. Set the reviver to Comrade and Auto-Phoenix. Attack, get counterattacked for a billion, repeat a couple times, then flee.
+      - id: s-0yp342
+        text: Farm spheres
+        note: Get +4 stat spheres, use clear spheres on lower stat nodes. Cap at 170 Agility, everything else to 255.
   - id: ch-dark-aeon-cloisters
     title: Besaid and Macalania Cloisters (Dark Aeons)
     summary: Requires a much stronger party for Dark Valefor and Dark Shiva. Yojimbo is allowed only if you already unlocked the Dark Aeon achievements.

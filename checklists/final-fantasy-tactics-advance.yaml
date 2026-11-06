@@ -1,0 +1,66 @@
+slug: final-fantasy-tactics-advance
+title: "Final Fantasy Tactics Advance"
+raGameId: 519
+console: Game Boy Advance
+version: 1
+sources:
+  - title: Fast Cinqueda
+    url: "https://gamefaqs.gamespot.com/boards/560436-final-fantasy-tactics-advance/27202514"
+  - title: Missable guide
+    url: "https://gamefaqs.gamespot.com/boards/560436-final-fantasy-tactics-advance/38555632"
+  - title: Stealing guide
+    url: "https://gamefaqs.gamespot.com/gba/560436-final-fantasy-tactics-advance/faqs/25875"
+  - title: Todo chart
+    url: "https://docs.google.com/spreadsheets/d/1BbRcZbMz-aGzrm65BEvIXcnzlgBw6OqCKUm8EMEhWQo/edit?gid=0#gid=0"
+
+chapters:
+  - id: ch-mission-1-2
+    title: Missions 1 - 2
+    steps:
+      - id: s-8ylw7j
+        text: Place Sphrom directly north of Cyril
+        note: The two should be top and bottom of a diamond, reachable with one stop in between in either direction.
+      - id: s-gya7qs
+        text: Mission 1 - Herb Picking
+      - id: s-exrndo
+        text: Mission 2 - Thesis Hunt
+  - id: ch-early-cinqueda
+    title: Early Cinqueda
+    steps:
+      - id: s-3n2aze
+        text: Drop to 5 party members
+        note: Keep Montblanc
+      - id: s-cflvyl
+        text: "Repeat 'Race wanted' until negotiation is 30"
+        note: Reject the new member to keep the mission available.
+      - id: s-nimzbo
+        text: "Repeat '#264 Swords in Cyril' to raise smithing to 20"
+        note: This gives early Nosada.
+      - id: s-40tsy8
+        text: Teach Steal Ability to all who can learn it
+  - id: ch-mission-3
+    title: Mission 3
+    steps:
+      - id: s-dx8uxv
+        text: "#027 Wanted! (Godeye)"
+        location: Madmoon
+        note: Get steal weapon from the thief
+      - id: s-csilr9
+        text: "#038 Fire! Fire!"
+        location: Cyril
+        note: Bomb. Sprinkler is unused.
+      - id: s-jkdjq6
+        text: "#044 Snow in Lutia"
+        note: Goblin
+      - id: s-zugqhd
+        text: "#045 Frosty Mage"
+        note: Steal everything from the black mage. Steal his weapon twice to get the Chill Rod. Floateye.
+      - id: s-i6atri
+        text: "#046 Prof in Trouble"
+        note: Ice Flan. Gedegg Soup is unused.
+      - id: s-xqsqbp
+        text: "#115 Dueling Sub"
+      - id: s-z9bkrz
+        text: "#025 Wanted!"
+        location: Kingmoon
+        note: Steal Chill Rod from black mage Dolce. Flower Vase.
